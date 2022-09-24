@@ -3,3 +3,24 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+main {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas: 
+  "header header"
+  "sidebar list";
+}
+
+header {
+  grid-area: "header";
+}
+
+.sidebar {
+  grid-area: "sidebar";
+}
+
+.list {
+  grid-area: "list";
+}
