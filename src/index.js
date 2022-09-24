@@ -18,6 +18,8 @@ test1.toggleComp();
 
 const main = document.querySelector('main')
 const projectsView = main.querySelector('.projectsView')
+const projectsBtn = main.querySelector('.projectsBtn')
+
 const listView = main.querySelector('.listView')
 
 renderProjects();
@@ -43,4 +45,37 @@ function renderProjects() {
     li.classList.add('project');
     projectsView.appendChild(li);
   });
+}
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}
+
+projectsBtn.addEventListener('click', newItem())
+
+function newItem() {
+  return () => {
+    const listInput = document.createElement('input');
+
+    removeAllChildNodes(projectsView);
+    renderProjects();
+    projectsView.appendChild(listInput);
+    listInput.addEventListener('keypress', newProject(listInput));
+
+  };
+}
+
+function newProject(listInput) {
+  return (e) => {
+    if (e.key === 'Enter') {
+      const listName = listInput.value;
+      const list = new List(listName);
+      projects.push(list);
+      removeAllChildNodes(projectsView);
+      renderProjects();
+      console.log(projects);
+    }
+  };
 }
