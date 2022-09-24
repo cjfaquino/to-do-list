@@ -20,21 +20,27 @@ const main = document.querySelector('main')
 const projectsView = main.querySelector('.projectsView')
 const listView = main.querySelector('.listView')
 
-projects.forEach((el) => {
-  const li = document.createElement('li');
-  li.textContent = el.name;
-  li.classList.add('project');
-  projectsView.appendChild(li)
-})
+renderProjects();
+renderToDos();
 
+function renderToDos() {
+  list1.list.forEach(el => {
+    const li = document.createElement('li');
+    const p = document.createElement('p');
+    const span = document.createElement('span');
+    p.textContent = el.name;
+    span.textContent = el.dueDate;
+    li.appendChild(p);
+    li.appendChild(span);
+    listView.appendChild(li);
+  });
+}
 
-list1.list.forEach(el => {
-  const li = document.createElement('li');
-  const p = document.createElement('p');
-  const span = document.createElement('span');
-  p.textContent = el.name;
-  span.textContent = el.dueDate;
-  li.appendChild(p)
-  li.appendChild(span)
-  listView.appendChild(li)
-})
+function renderProjects() {
+  projects.forEach((el) => {
+    const li = document.createElement('li');
+    li.textContent = el.name;
+    li.classList.add('project');
+    projectsView.appendChild(li);
+  });
+}
