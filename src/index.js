@@ -9,9 +9,9 @@ let currentProject;
 
 
 //test data
-const test1 = new ToDo('test1', new Date().toLocaleDateString())
-const test2 = new ToDo('test2', new Date().toLocaleDateString())
-const test3 = new ToDo('test3', new Date().toLocaleDateString())
+const test1 = new ToDo('test1')
+const test2 = new ToDo('test2')
+const test3 = new ToDo('test3')
 
 
 const project1 = createNewProject('Project');
