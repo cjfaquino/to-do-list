@@ -16,6 +16,7 @@ const test2 = new ToDo('test2', new Date())
 const project1 = createNewProject('Project');
 const project2 = createNewProject('Cleaning');
 
+console.log(projects);
 
 project1.list.push(test1)
 project2.list.push(test2)
@@ -82,6 +83,7 @@ function createNewInput(view, type) {
 
     removeAllChildNodes(view);
     view.appendChild(newInput);
+    newInput.select();
 
     if(type==='project'){
       renderProjects();
