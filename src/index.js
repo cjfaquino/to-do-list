@@ -106,29 +106,33 @@ function removeAllChildNodes(parent) {
 
 function createNewInput(view, type) {
   return () => {
-    const newInput = document.createElement('input');
+    const newName = document.createElement('input');
+    const newDate = document.createElement('input');
+    newName.type = 'text';
+    newDate.type = 'date';
 
     removeAllChildNodes(view);
-    view.appendChild(newInput);
-    newInput.select();
+    view.appendChild(newName);
+    view.appendChild(newDate);
+    newName.select();
 
     if(type==='project'){
       renderProjects();
-      newInput.addEventListener('keypress', createNewItem(
-        newInput, projectsView, type))};
+      newName.addEventListener('keypress', createNewItem(
+        newName, projectsView, type))};
 
     if(type==='todo'){
       renderToDos(currentProject);
-      newInput.addEventListener('keypress', createNewItem(
-        newInput, listView, type))};
+      newName.addEventListener('keypress', createNewItem(
+        newName, listView, type, newDate))};
 
   };
 }
 
-function createNewItem(newInput, view, type) {
+function createNewItem(newName, view, type, newDate) {
   return (e) => {
     if (e.key === 'Enter') {
-      const name = newInput.value;
+      const name = newName.value;
       removeAllChildNodes(view);
 
       if(type==='project'){
@@ -137,7 +141,7 @@ function createNewItem(newInput, view, type) {
       }
 
       if(type==='todo'){
-        const todo = new ToDo(name, new Date().toLocaleDateString());
+        const todo = new ToDo(name, newDate.value);
         currentProject.list.push(todo);
         renderToDos(currentProject);
       }
