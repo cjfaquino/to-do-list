@@ -9,8 +9,9 @@ let currentProject;
 
 
 //test data
-const test1 = new ToDo('test1', new Date())
-const test2 = new ToDo('test2', new Date())
+const test1 = new ToDo('test1', new Date().toLocaleDateString())
+const test2 = new ToDo('test2', new Date().toLocaleDateString())
+const test3 = new ToDo('test3', new Date().toLocaleDateString())
 
 
 const project1 = createNewProject('Project');
@@ -19,6 +20,7 @@ const project2 = createNewProject('Cleaning');
 console.log(projects);
 
 
+project1.list.push(test3)
 project1.list.push(test1)
 project2.list.push(test2)
 test1.toggleComp();
@@ -56,7 +58,6 @@ function renderInbox(){
   renderToDos(inboxList)
 }
 
-
 function renderToDos(projectArray) {
   projectArray.list.forEach(el => {
     const li = createNewToDoDOM(el);
@@ -93,7 +94,6 @@ function createNewProjectDOM(item, index) {
   function renderSelected() {
       removeAllChildNodes(listView);
       renderToDos(projects[index]);
-      console.log(currentProject);
     };
 }
 
@@ -134,16 +134,12 @@ function createNewItem(newInput, view, type) {
       if(type==='project'){
         createNewProject(name)
         renderProjects();
-
-        console.log(projects);
       }
 
       if(type==='todo'){
-        const todo = new ToDo(name, new Date());
+        const todo = new ToDo(name, new Date().toLocaleDateString());
         currentProject.list.push(todo);
         renderToDos(currentProject);
-        
-        console.log(todo);
       }
     }
   };
