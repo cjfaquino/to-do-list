@@ -23,10 +23,10 @@ const projectsBtn = main.querySelector('.projectsBtn')
 const listView = main.querySelector('.listView')
 
 renderProjects();
-renderToDos();
+renderToDos(list1);
 
-function renderToDos() {
-  list1.list.forEach(el => {
+function renderToDos(projectArray) {
+  projectArray.list.forEach(el => {
     const li = document.createElement('li');
     const p = document.createElement('p');
     const span = document.createElement('span');
