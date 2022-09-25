@@ -8,13 +8,16 @@ let currentProject;
 
 
 //test data
-const project1 = new List('Project')
 const test1 = new ToDo('test1', new Date())
 const test2 = new ToDo('test2', new Date())
 
-projects.push(project1)
+
+const project1 = createNewProject('Project');
+const project2 = createNewProject('Cleaning');
+
+
 project1.list.push(test1)
-project1.list.push(test2)
+project2.list.push(test2)
 test1.toggleComp();
 
 const main = document.querySelector('main')
@@ -88,8 +91,7 @@ function createNewItem(newInput, view, type) {
       removeAllChildNodes(view);
 
       if(type==='project'){
-        const list = new List(name);
-        projects.push(list);
+        createNewProject(name)
         renderProjects();
 
         console.log(projects);
@@ -104,4 +106,10 @@ function createNewItem(newInput, view, type) {
       }
     }
   };
+}
+
+function createNewProject(name){
+  const list = new List(name);
+  projects.push(list);
+  return list;
 }
