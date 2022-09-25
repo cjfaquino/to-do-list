@@ -3,6 +3,7 @@ import './style.css';
 import { List } from './components/List';
 import { ToDo } from './components/ToDo';
 
+
 let projects = [];
 let currentProject;
 
@@ -49,12 +50,23 @@ function renderToDos(projectArray) {
 }
 
 function renderProjects() {
-  projects.forEach((el) => {
-    const li = document.createElement('li');
-    li.textContent = el.name;
-    li.classList.add('project');
+  projects.forEach((el, index) => {
+    const li = createNewProjectDOM(el, index);
     projectsView.appendChild(li);
   });
+}
+
+function createNewProjectDOM(item, index) {
+  const li = document.createElement('li');
+  li.textContent = item.name;
+  li.classList.add('project');
+  li.addEventListener('click', renderSelected)
+  return li;
+
+  function renderSelected() {
+      removeAllChildNodes(listView);
+      renderToDos(projects[index]);
+    };
 }
 
 function removeAllChildNodes(parent) {
