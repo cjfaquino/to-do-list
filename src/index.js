@@ -93,6 +93,7 @@ function createNewProjectDOM(item, index) {
   function renderSelected() {
       removeAllChildNodes(listView);
       renderToDos(projects[index]);
+      console.log(currentProject);
     };
 }
 
@@ -139,7 +140,7 @@ function createNewItem(newInput, view, type) {
 
       if(type==='todo'){
         const todo = new ToDo(name, new Date());
-        currentProject.push(todo);
+        currentProject.list.push(todo);
         renderToDos(currentProject);
         
         console.log(todo);
