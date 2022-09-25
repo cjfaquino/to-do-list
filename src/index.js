@@ -4,16 +4,17 @@ import { List } from './components/List';
 import { ToDo } from './components/ToDo';
 
 let projects = [];
+let currentProject;
 
 
 //test data
-const list1 = new List('Project')
+const project1 = new List('Project')
 const test1 = new ToDo('test1', new Date())
 const test2 = new ToDo('test2', new Date())
 
-projects.push(list1)
-list1.list.push(test1)
-list1.list.push(test2)
+projects.push(project1)
+project1.list.push(test1)
+project1.list.push(test2)
 test1.toggleComp();
 
 const main = document.querySelector('main')
@@ -21,9 +22,14 @@ const projectsView = main.querySelector('.projectsView')
 const projectsBtn = main.querySelector('.projectsBtn')
 
 const listView = main.querySelector('.listView')
+const listBtn = main.querySelector('.listBtn')
+
+
+projectsBtn.addEventListener('click', createNewInput(projectsView, 'project'))
+listBtn.addEventListener('click', createNewInput(listView, 'todo'))
 
 renderProjects();
-renderToDos(list1);
+renderToDos(project1);
 
 function renderToDos(projectArray) {
   projectArray.list.forEach(el => {
@@ -35,6 +41,7 @@ function renderToDos(projectArray) {
     li.appendChild(p);
     li.appendChild(span);
     listView.appendChild(li);
+    currentProject = projectArray;
   });
 }
 
@@ -53,29 +60,48 @@ function removeAllChildNodes(parent) {
   }
 }
 
-projectsBtn.addEventListener('click', newItem())
 
-function newItem() {
+function createNewInput(view, type) {
   return () => {
-    const listInput = document.createElement('input');
+    const newInput = document.createElement('input');
 
-    removeAllChildNodes(projectsView);
-    renderProjects();
-    projectsView.appendChild(listInput);
-    listInput.addEventListener('keypress', newProject(listInput));
+    removeAllChildNodes(view);
+    view.appendChild(newInput);
+
+    if(type==='project'){
+      renderProjects();
+      newInput.addEventListener('keypress', createNewItem(
+        newInput, projectsView, type))};
+
+    if(type==='todo'){
+      renderToDos(currentProject);
+      newInput.addEventListener('keypress', createNewItem(
+        newInput, listView, type))};
 
   };
 }
 
-function newProject(listInput) {
+function createNewItem(newInput, view, type) {
   return (e) => {
     if (e.key === 'Enter') {
-      const listName = listInput.value;
-      const list = new List(listName);
-      projects.push(list);
-      removeAllChildNodes(projectsView);
-      renderProjects();
-      console.log(projects);
+      const name = newInput.value;
+      removeAllChildNodes(view);
+
+      if(type==='project'){
+        const list = new List(name);
+        projects.push(list);
+        renderProjects();
+
+        console.log(projects);
+      }
+
+      if(type==='todo'){
+        const todo = new ToDo(name, new Date());
+        currentProject.list.push(todo);
+        renderToDos(currentProject);
+        
+        console.log(todo);
+      }
     }
   };
 }
