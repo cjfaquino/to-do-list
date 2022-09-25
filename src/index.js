@@ -18,6 +18,7 @@ const project2 = createNewProject('Cleaning');
 
 console.log(projects);
 
+
 project1.list.push(test1)
 project2.list.push(test2)
 test1.toggleComp();
@@ -38,16 +39,21 @@ renderToDos(project1);
 
 function renderToDos(projectArray) {
   projectArray.list.forEach(el => {
-    const li = document.createElement('li');
-    const p = document.createElement('p');
-    const span = document.createElement('span');
-    p.textContent = el.name;
-    span.textContent = el.dueDate;
-    li.appendChild(p);
-    li.appendChild(span);
+    const li = createNewToDoDOM(el);
     listView.appendChild(li);
     currentProject = projectArray;
   });
+}
+
+function createNewToDoDOM(el) {
+  const li = document.createElement('li');
+  const p = document.createElement('p');
+  const span = document.createElement('span');
+  p.textContent = el.name;
+  span.textContent = el.dueDate;
+  li.appendChild(p);
+  li.appendChild(span);
+  return li;
 }
 
 function renderProjects() {
