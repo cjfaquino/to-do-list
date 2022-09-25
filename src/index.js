@@ -3,7 +3,7 @@ import './style.css';
 import { List } from './components/List';
 import { ToDo } from './components/ToDo';
 
-
+let inboxList = new List('Inbox');
 let projects = [];
 let currentProject;
 
@@ -24,6 +24,8 @@ project2.list.push(test2)
 test1.toggleComp();
 
 const main = document.querySelector('main')
+const inbox = main.querySelector('#inbox')
+
 const projectsView = main.querySelector('.projectsView')
 const projectsBtn = main.querySelector('.projectsBtn')
 
@@ -33,9 +35,27 @@ const listBtn = main.querySelector('.listBtn')
 
 projectsBtn.addEventListener('click', createNewInput(projectsView, 'project'))
 listBtn.addEventListener('click', createNewInput(listView, 'todo'))
+inbox.addEventListener('click', renderInbox)
+
 
 renderProjects();
-renderToDos(project1);
+renderInbox();
+
+function combineAllToDos(){
+  inboxList.list = [];
+  projects.forEach(el => {
+    el.list.forEach(item => {
+      inboxList.list.push(item);
+    })
+  })
+}
+
+function renderInbox(){
+  combineAllToDos();
+  removeAllChildNodes(listView)
+  renderToDos(inboxList)
+}
+
 
 function renderToDos(projectArray) {
   projectArray.list.forEach(el => {
@@ -119,7 +139,7 @@ function createNewItem(newInput, view, type) {
 
       if(type==='todo'){
         const todo = new ToDo(name, new Date());
-        currentProject.list.push(todo);
+        currentProject.push(todo);
         renderToDos(currentProject);
         
         console.log(todo);
