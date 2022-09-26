@@ -150,6 +150,8 @@ function createNewItem(newName, view, type, newDate) {
         const todo = new ToDo(name, newDate.value);
         currentProject.list.push(todo);
         renderToDos(currentProject);
+        removeAllChildNodes(projectsView);
+        renderProjects();
       }
     }
   };
