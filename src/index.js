@@ -203,14 +203,18 @@ function createNewItem(newName, view, type, newDate) {
       }
 
       if(type==='todo'){
-        const todo = new ToDo(name, newDate.value);
-        currentProject.list.push(todo);
+        createNewTodo(name, newDate);
         renderToDos(currentProject);
         removeAllChildNodes(projectsView);
         renderProjects();
       }
     }
   };
+}
+
+function createNewTodo(name, newDate) {
+  const todo = new ToDo(name, newDate.value);
+  currentProject.list.push(todo);
 }
 
 function createNewProject(name){
