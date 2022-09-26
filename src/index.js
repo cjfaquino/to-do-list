@@ -81,7 +81,7 @@ function createNewToDoDOM(el, projectArray) {
   li.appendChild(p);
   li.appendChild(span);
   li.appendChild(del)
-
+  li.classList.add('todo')
   del.addEventListener('click', deleteTodo(projectArray))
 
   return li;
