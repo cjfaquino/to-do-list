@@ -42,3 +42,18 @@ header {
 .list {
   grid-area: "list";
 }
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  max-width: 700px;
+}
+
+.todo span {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.deleteBtn {
+  margin-left: 10px;
+}
