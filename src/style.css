@@ -25,6 +25,13 @@ header {
   display: none;
 }
 
+.strike {
+  text-decoration: line-through;
+  opacity: .2;
+}
+
+
+
 .sidebar {
   grid-area: "sidebar";
 }
@@ -46,7 +53,12 @@ header {
 .todo {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 700px;
+}
+
+.checkComplete {
+  margin-right: 10px;
 }
 
 .todo span {
