@@ -36,6 +36,16 @@ header {
   grid-area: "sidebar";
 }
 
+.projects {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.projectsBtn {
+  margin-left: 10px;
+  padding: 5px 15px;
+}
+
 .project {
   display: flex;
 }
