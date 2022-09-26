@@ -54,7 +54,7 @@ renderInbox();
 
 function renderInbox(){
   // combineAllToDos();
-  
+  main.dataset.list = 'allInbox'
   removeAllChildNodes(listView)
   projects.forEach(el=>{
     renderToDos(el)
@@ -91,8 +91,10 @@ function createNewToDoDOM(el, projectArray) {
       projectArray.delTodo(el)
       removeAllChildNodes(listView);
       removeAllChildNodes(projectsView);
-      renderToDos(projectArray);
       renderProjects();
+      if(main.dataset.list==='allInbox') {
+        renderInbox();
+      } else {renderToDos(projectArray)}
     }
   }
 }
@@ -118,6 +120,7 @@ function createNewProjectDOM(item, index) {
   return li;
 
   function renderSelected() {
+      main.dataset.list = item.name;
       currentProject = item;
       removeAllChildNodes(listView);
       renderToDos(projects[index]);
