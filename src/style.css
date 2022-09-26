@@ -33,12 +33,20 @@ header {
 
 
 .sidebar {
+  padding: 30px 20px;
   grid-area: "sidebar";
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.sidebar li {
+  margin-top: 10px;
 }
 
 .projects {
   display: flex;
   margin-bottom: 10px;
+  align-items: center;
 }
 
 .projectsBtn {
@@ -48,6 +56,9 @@ header {
 
 .project {
   display: flex;
+  margin-left: 20px;
+  font-size: 1.3rem;
+  font-weight: 400;
 }
 
 .project span{
@@ -59,7 +70,9 @@ header {
   margin-left: auto;
 }
 
-
+#notes {
+  margin-top: 50px;
+}
 
 .list {
   grid-area: "list";
