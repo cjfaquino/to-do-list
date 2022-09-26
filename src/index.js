@@ -124,14 +124,27 @@ function createNewProjectDOM(item, index) {
   const li = document.createElement('li');
   const span = document.createElement('span');
   const p = document.createElement('p');
+  const del = document.createElement('div');
+  del.textContent = 'del'; //placeholder for icon
   span.textContent = item.list.length;
   span.classList.add('projectLength');
   p.textContent = item.name;
   li.classList.add('project');
   li.appendChild(span);
   li.appendChild(p);
-  li.addEventListener('click', renderSelected)
+  li.appendChild(del);
+  p.addEventListener('click', renderSelected)
+  del.addEventListener('click', deleteProject(item))
   return li;
+
+  function deleteProject(item) {
+    return () => {
+      projects = projects.filter(key => key != item);
+      removeAllChildNodes(projectsView);
+      renderProjects();
+      renderInbox();
+    };
+  }
 
   function renderSelected() {
       main.dataset.list = item.name;
