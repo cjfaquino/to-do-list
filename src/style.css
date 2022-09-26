@@ -22,7 +22,12 @@ header {
 }
 
 .hide {
-  display: none;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.hide:hover {
+  opacity: 1;
 }
 
 .strike {
