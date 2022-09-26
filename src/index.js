@@ -23,7 +23,6 @@ console.log(projects);
 project1.list.push(test3)
 project1.list.push(test1)
 project2.list.push(test2)
-test1.toggleComp();
 
 const main = document.querySelector('main')
 const inbox = main.querySelector('#inbox')
@@ -74,16 +73,20 @@ function createNewToDoDOM(el, projectArray) {
   const p = document.createElement('p');
   const span = document.createElement('span');
   const del = document.createElement('div');
+  const check = document.createElement('input');
+  check.type = 'checkbox';
+  check.classList.add('checkComplete');
   del.textContent = 'del'; //placeholder for icon
   del.classList.add('deleteBtn');
   p.textContent = el.name;
   span.textContent = el.dueDate;
+  li.appendChild(check);
   li.appendChild(p);
   li.appendChild(span);
   li.appendChild(del)
   li.classList.add('todo')
   del.addEventListener('click', deleteTodo(projectArray))
-
+  check.addEventListener('click', toggleCompleted(el))
   return li;
 
   function deleteTodo(projectArray) {
@@ -96,6 +99,17 @@ function createNewToDoDOM(el, projectArray) {
         renderInbox();
       } else {renderToDos(projectArray)}
     }
+  }
+
+  function toggleCompleted(el) {
+    return () => {
+      el.toggleComp();
+      if(!el.completed){
+        li.classList.remove('strike')
+      } else {
+        li.classList.add('strike')
+      } 
+    };
   }
 }
 
