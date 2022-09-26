@@ -21,6 +21,10 @@ header {
   grid-area: "header";
 }
 
+.hide {
+  display: none;
+}
+
 .sidebar {
   grid-area: "sidebar";
 }
