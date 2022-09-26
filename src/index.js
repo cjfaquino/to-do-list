@@ -43,19 +43,22 @@ inbox.addEventListener('click', renderInbox)
 renderProjects();
 renderInbox();
 
-function combineAllToDos(){
-  inboxList.list = [];
-  projects.forEach(el => {
-    el.list.forEach(item => {
-      inboxList.list.push(item);
-    })
-  })
-}
+// function combineAllToDos(){
+//   inboxList.list = [];
+//   projects.forEach(el => {
+//     el.list.forEach(item => {
+//       inboxList.list.push(item);
+//     })
+//   })
+// }
 
 function renderInbox(){
-  combineAllToDos();
+  // combineAllToDos();
+  
   removeAllChildNodes(listView)
-  renderToDos(inboxList)
+  projects.forEach(el=>{
+    renderToDos(el)
+  })
 }
 
 function renderToDos(projectArray) {
