@@ -73,10 +73,13 @@ function createNewToDoDOM(el, projectArray) {
   const li = document.createElement('li');
   const p = document.createElement('p');
   const span = document.createElement('span');
+  const edit = document.createElement('div');
   const del = document.createElement('div');
   const check = document.createElement('input');
   check.type = 'checkbox';
   check.classList.add('checkComplete');
+  edit.textContent = 'edit'; //placeholder for icon
+  edit.classList.add('editBtn');
   del.textContent = 'del'; //placeholder for icon
   del.classList.add('deleteBtn');
   p.textContent = el.name;
@@ -84,31 +87,36 @@ function createNewToDoDOM(el, projectArray) {
   li.appendChild(check);
   li.appendChild(p);
   li.appendChild(span);
+  li.appendChild(edit)
   li.appendChild(del)
   li.classList.add('todo');
+  edit.classList.add('hide');
   del.classList.add('hide');
   if(el.completed){
     li.classList.add('strike');
     check.checked = true;
+    edit.classList.remove('hide')
     del.classList.remove('hide')
   }
   del.addEventListener('click', deleteTodo(projectArray));
-  li.addEventListener('mouseenter', unhideOptions(del))
-  li.addEventListener('mouseleave', hideOptions(el, del))
+  li.addEventListener('mouseenter', unhideOptions(del, edit))
+  li.addEventListener('mouseleave', hideOptions(el, del, edit))
   check.addEventListener('click', toggleCompleted(el))
   return li;
 
-  function hideOptions(el, del) {
+  function hideOptions(el, del, edit) {
     return () => {
       if(!el.completed){
         del.classList.add('hide');
+        edit.classList.add('hide');
       }
     };
   }
 
-  function unhideOptions(del) {
+  function unhideOptions(del, edit) {
     return () => {
-      del.classList.remove('hide')
+      del.classList.remove('hide');
+      edit.classList.remove('hide');
     };
   }
 
