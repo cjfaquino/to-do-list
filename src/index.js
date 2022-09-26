@@ -85,14 +85,32 @@ function createNewToDoDOM(el, projectArray) {
   li.appendChild(p);
   li.appendChild(span);
   li.appendChild(del)
-  li.classList.add('todo')
+  li.classList.add('todo');
+  del.classList.add('hide');
   if(el.completed){
     li.classList.add('strike');
     check.checked = true;
+    del.classList.remove('hide')
   }
-  del.addEventListener('click', deleteTodo(projectArray))
+  del.addEventListener('click', deleteTodo(projectArray));
+  li.addEventListener('mouseenter', unhideOptions(del))
+  li.addEventListener('mouseleave', hideOptions(el, del))
   check.addEventListener('click', toggleCompleted(el))
   return li;
+
+  function hideOptions(el, del) {
+    return () => {
+      if(!el.completed){
+        del.classList.add('hide');
+      }
+    };
+  }
+
+  function unhideOptions(del) {
+    return () => {
+      del.classList.remove('hide')
+    };
+  }
 
   function deleteTodo(projectArray) {
     return () => {
