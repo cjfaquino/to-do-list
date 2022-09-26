@@ -60,21 +60,38 @@ function renderInbox(){
 
 function renderToDos(projectArray) {
   projectArray.list.forEach(el => {
-    const li = createNewToDoDOM(el);
+    const li = createNewToDoDOM(el, projectArray);
     listView.appendChild(li);
     currentProject = projectArray;
   });
 }
 
-function createNewToDoDOM(el) {
+function createNewToDoDOM(el, projectArray) {
   const li = document.createElement('li');
   const p = document.createElement('p');
   const span = document.createElement('span');
+  const del = document.createElement('div');
+  del.textContent = 'del'; //placeholder for icon
+  del.classList.add('deleteBtn');
   p.textContent = el.name;
   span.textContent = el.dueDate;
   li.appendChild(p);
   li.appendChild(span);
+  li.appendChild(del)
+
+  del.addEventListener('click', deleteTodo(projectArray))
+
   return li;
+
+  function deleteTodo(projectArray) {
+    return () => {
+      projectArray.delTodo(el)
+      removeAllChildNodes(listView);
+      removeAllChildNodes(projectsView);
+      renderToDos(projectArray);
+      renderProjects();
+    }
+  }
 }
 
 function renderProjects() {
