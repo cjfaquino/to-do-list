@@ -1,9 +1,7 @@
 export class ToDo {
   constructor(name, dueDate, desc = '') {
     this.name = name;
-    if(!dueDate){
-      this.dueDate = new Date().toISOString().split('T')[0]
-    } else {this.dueDate = dueDate;}
+    this.dueDate = dueDate;
     this.desc = desc;
     this.completed = false;
   }
