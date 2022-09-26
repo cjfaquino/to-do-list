@@ -85,6 +85,10 @@ function createNewToDoDOM(el, projectArray) {
   li.appendChild(span);
   li.appendChild(del)
   li.classList.add('todo')
+  if(el.completed){
+    li.classList.add('strike');
+    check.checked = true;
+  }
   del.addEventListener('click', deleteTodo(projectArray))
   check.addEventListener('click', toggleCompleted(el))
   return li;
