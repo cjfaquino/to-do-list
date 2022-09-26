@@ -25,6 +25,16 @@ header {
   grid-area: "sidebar";
 }
 
+.project span{
+  margin-right: 10px;
+}
+
+.project p {
+  display: inline-block;
+}
+
+
+
 .list {
   grid-area: "list";
 }
