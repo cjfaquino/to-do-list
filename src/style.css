@@ -36,12 +36,17 @@ header {
   grid-area: "sidebar";
 }
 
+.project {
+  display: flex;
+}
+
 .project span{
   margin-right: 10px;
 }
 
-.project p {
-  display: inline-block;
+.project div {
+  margin-right: 0;
+  margin-left: auto;
 }
 
 
