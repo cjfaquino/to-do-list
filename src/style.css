@@ -54,18 +54,18 @@ header {
   padding: 5px 15px;
 }
 
-.project {
+.projectItem {
   display: flex;
   margin-left: 20px;
   font-size: 1.3rem;
   font-weight: 400;
 }
 
-.project span{
+.projectItem span{
   margin-right: 10px;
 }
 
-.project div {
+.projectItem div {
   margin-right: 0;
   margin-left: auto;
 }

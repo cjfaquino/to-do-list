@@ -134,7 +134,7 @@ function createNewProjectDOM(item, index) {
   span.textContent = item.list.length;
   span.classList.add('projectLength');
   p.textContent = item.name;
-  li.classList.add('project');
+  li.classList.add('projectItem');
   li.appendChild(span);
   li.appendChild(p);
   li.appendChild(del);
