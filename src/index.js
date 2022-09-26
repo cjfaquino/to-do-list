@@ -170,15 +170,15 @@ function createNewInput(view, type) {
 
     removeAllChildNodes(view);
     view.appendChild(newName);
-    view.appendChild(newDate);
     newName.select();
-
+    
     if(type==='project'){
       renderProjects();
       newName.addEventListener('keypress', createNewItem(
         newName, projectsView, type))};
-
+ 
     if(type==='todo'){
+      view.appendChild(newDate);
       renderToDos(currentProject);
       newName.addEventListener('keypress', createNewItem(
         newName, listView, type, newDate))};
