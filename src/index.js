@@ -9,8 +9,8 @@ let currentProject;
 
 
 //test data
-const test1 = new ToDo('test1')
-const test2 = new ToDo('test2')
+const test1 = new ToDo('test1', new Date().toISOString().split('T')[0])
+const test2 = new ToDo('test2', new Date().toISOString().split('T')[0])
 const test3 = new ToDo('test3')
 
 
@@ -98,6 +98,7 @@ function createNewProjectDOM(item, index) {
   return li;
 
   function renderSelected() {
+      currentProject = item;
       removeAllChildNodes(listView);
       renderToDos(projects[index]);
     };
