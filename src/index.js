@@ -3,7 +3,7 @@ import './style.css';
 import { List } from './components/List';
 import { ToDo } from './components/ToDo';
 
-let inboxList = new List('Inbox');
+// let inboxList = new List('Inbox');
 let projects = [];
 let currentProject;
 
