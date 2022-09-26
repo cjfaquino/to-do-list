@@ -86,8 +86,14 @@ function renderProjects() {
 
 function createNewProjectDOM(item, index) {
   const li = document.createElement('li');
-  li.textContent = item.name;
+  const span = document.createElement('span');
+  const p = document.createElement('p');
+  span.textContent = item.list.length;
+  span.classList.add('projectLength');
+  p.textContent = item.name;
   li.classList.add('project');
+  li.appendChild(span);
+  li.appendChild(p);
   li.addEventListener('click', renderSelected)
   return li;
 
