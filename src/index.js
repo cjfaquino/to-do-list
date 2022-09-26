@@ -23,6 +23,7 @@ console.log(projects);
 project1.list.push(test3)
 project1.list.push(test1)
 project2.list.push(test2)
+test1.toggleComp();
 
 const main = document.querySelector('main')
 const inbox = main.querySelector('#inbox')
