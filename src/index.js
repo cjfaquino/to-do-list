@@ -31,10 +31,11 @@ const inbox = main.querySelector('#inbox')
 const projectsView = main.querySelector('.projectsView')
 const projectsBtn = main.querySelector('.projectsBtn')
 
-const listView = main.querySelector('.listView')
-const listBtn = main.querySelector('.listBtn')
+const list = main.querySelector('.list')
+const listView = list.querySelector('.listView')
+const listBtn = list.querySelector('.listBtn')
 
-let listTitle = main.querySelector('.listTitle');
+let listTitle = list.querySelector('.listTitle');
 
 projectsBtn.addEventListener('click', createNewInput(projectsView, 'project'))
 listBtn.addEventListener('click', createNewInput(listView, 'todo'))
@@ -55,6 +56,7 @@ renderInbox();
 
 function renderInbox(){
   // combineAllToDos();
+  listBtn.remove();
   main.dataset.list = 'allInbox'
   listTitle.textContent = 'Inbox';
   removeAllChildNodes(listView)
@@ -190,6 +192,7 @@ function createNewProjectDOM(item, index) {
       main.dataset.list = item.name;
       currentProject = item;
       listTitle.textContent = item.name;
+      list.insertBefore(listBtn, listView)
       removeAllChildNodes(listView);
       renderToDos(projects[index]);
     };
