@@ -203,22 +203,37 @@ function removeAllChildNodes(parent) {
 function createEditInput(el){
   const edits = document.createElement('div');
   const div = document.createElement('div');
+  const labelName = document.createElement('label');
+  const labelDate = document.createElement('label');
+  const labelDesc = document.createElement('label');
   const newName = document.createElement('input');
   const newDate = document.createElement('input');
   const newDesc = document.createElement('input');
   const accept = document.createElement('button');
   const cancel = document.createElement('button');
+
   edits.classList.add('edits');
   div.classList.add('editInputs');
-  accept.textContent = 'Confirm'; 
-  cancel.textContent = 'Cancel';
+
+  labelName.textContent = 'Name:';
+  labelDate.textContent = 'Due:';
+  labelDesc.textContent = 'Description:';
+  labelName.htmlFor = 'editName';
+  labelDate.htmlFor = 'editDate';
+  labelDesc.htmlFor = 'editDesc';
+  newName.id = 'editName';
+  newDate.id = 'editDate';
+  newDesc.id = 'editDesc';
   newName.type = 'text';
   newDate.type = 'date';
   newDesc.type = 'text';
   newName.value = el.name;
   newDate.value = el.dueDate;
   newDesc.value = el.desc;
-  div.append(newName, newDesc, newDate, accept, cancel);
+  
+  accept.textContent = 'Confirm'; 
+  cancel.textContent = 'Cancel';
+  div.append(labelName, newName, labelDesc, newDesc, labelDate, newDate, accept, cancel);
   edits.append(div);
   main.append(edits)
   
