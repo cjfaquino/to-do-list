@@ -107,8 +107,6 @@ function createNewToDoDOM(el, projectArray) {
 
   function editTodo(el, projectArray) {
     return () => { 
-      console.log(el.name);
-      console.log(li);
       createEditInput(el)
     };
   }
@@ -208,7 +206,7 @@ function createEditInput(el){
   const labelDesc = document.createElement('label');
   const newName = document.createElement('input');
   const newDate = document.createElement('input');
-  const newDesc = document.createElement('input');
+  const newDesc = document.createElement('textarea');
   const accept = document.createElement('button');
   const cancel = document.createElement('button');
 
@@ -226,7 +224,6 @@ function createEditInput(el){
   newDesc.id = 'editDesc';
   newName.type = 'text';
   newDate.type = 'date';
-  newDesc.type = 'text';
   newName.value = el.name;
   newDate.value = el.dueDate;
   newDesc.value = el.desc;
