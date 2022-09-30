@@ -192,7 +192,7 @@ function createNewProjectDOM(item, index) {
       main.dataset.list = item.name;
       currentProject = item;
       listTitle.textContent = item.name;
-      list.insertBefore(listBtn, listView)
+      listTitle.after(listBtn)
       removeAllChildNodes(listView);
       renderToDos(projects[index]);
     };
