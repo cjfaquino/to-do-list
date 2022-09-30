@@ -83,16 +83,23 @@ header {
   grid-area: "list";
 }
 
-.listTitle {
-  display: inline-block;
+.topRow {
+  display: flex;
+  align-items: center;
+  max-width: 536px;
+  margin-bottom: 15px;
 }
 
 .listBtn {
   padding: 5px 15px;
 }
 
+.dueDate {
+  margin-left: auto;
+}
+
 .listView {
-  max-width: 700px;
+  max-width: 600px;
 }
 
 .todo {
