@@ -98,11 +98,20 @@ function createNewToDoDOM(el, projectArray) {
     edit.classList.remove('hide')
     del.classList.remove('hide')
   }
+  edit.addEventListener('click', editTodo(el, projectArray))
   del.addEventListener('click', deleteTodo(projectArray));
   li.addEventListener('mouseenter', unhideOptions(del, edit))
   li.addEventListener('mouseleave', hideOptions(el, del, edit))
   check.addEventListener('click', toggleCompleted(el))
   return li;
+
+  function editTodo(el, projectArray) {
+    return () => { 
+      console.log(el.name);
+      console.log(li);
+      createEditInput(el)
+    };
+  }
 
   function hideOptions(el, del, edit) {
     return () => {
@@ -191,6 +200,53 @@ function removeAllChildNodes(parent) {
   }
 }
 
+function createEditInput(el){
+  const edits = document.createElement('div');
+  const div = document.createElement('div');
+  const newName = document.createElement('input');
+  const newDate = document.createElement('input');
+  const newDesc = document.createElement('input');
+  const accept = document.createElement('button');
+  const cancel = document.createElement('button');
+  edits.classList.add('edits');
+  div.classList.add('editInputs');
+  accept.textContent = 'Confirm'; 
+  cancel.textContent = 'Cancel';
+  newName.type = 'text';
+  newDate.type = 'date';
+  newDesc.type = 'text';
+  newName.value = el.name;
+  newDate.value = el.dueDate;
+  newDesc.value = el.desc;
+  div.append(newName, newDesc, newDate, accept, cancel);
+  edits.append(div);
+  main.append(edits)
+  
+  accept.addEventListener('click', updateTodo(el));
+  cancel.addEventListener('click', cancelEdit);
+  
+  function cancelEdit(){
+    edits.remove();
+  }
+
+  function updateTodo(el) {
+    return  () => {
+      const name = newName.value;
+      const due = newDate.value;
+      const desc = newDesc.value;
+      el.setName(name);
+      el.setDate(due);
+      el.setDesc(desc);
+      
+      removeAllChildNodes(edits);
+      removeAllChildNodes(listView);
+      if(main.dataset.list==='allInbox') {
+        renderInbox();
+      } else {renderToDos(currentProject)};
+
+    };
+  }
+}
 
 function createNewInput(view, type) {
   return () => {
