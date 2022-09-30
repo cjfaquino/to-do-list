@@ -34,6 +34,7 @@ const projectsBtn = main.querySelector('.projectsBtn')
 const listView = main.querySelector('.listView')
 const listBtn = main.querySelector('.listBtn')
 
+let listTitle = main.querySelector('.listTitle');
 
 projectsBtn.addEventListener('click', createNewInput(projectsView, 'project'))
 listBtn.addEventListener('click', createNewInput(listView, 'todo'))
@@ -55,6 +56,7 @@ renderInbox();
 function renderInbox(){
   // combineAllToDos();
   main.dataset.list = 'allInbox'
+  listTitle.textContent = 'Inbox';
   removeAllChildNodes(listView)
   projects.forEach(el=>{
     renderToDos(el)
@@ -187,6 +189,7 @@ function createNewProjectDOM(item, index) {
   function renderSelected() {
       main.dataset.list = item.name;
       currentProject = item;
+      listTitle.textContent = item.name;
       removeAllChildNodes(listView);
       renderToDos(projects[index]);
     };
