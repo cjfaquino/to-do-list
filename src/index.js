@@ -98,14 +98,14 @@ function createNewToDoDOM(el, projectArray) {
     edit.classList.remove('hide')
     del.classList.remove('hide')
   }
-  edit.addEventListener('click', editTodo(el, projectArray))
+  edit.addEventListener('click', editTodo(el))
   del.addEventListener('click', deleteTodo(projectArray));
   li.addEventListener('mouseenter', unhideOptions(del, edit))
   li.addEventListener('mouseleave', hideOptions(el, del, edit))
   check.addEventListener('click', toggleCompleted(el))
   return li;
 
-  function editTodo(el, projectArray) {
+  function editTodo(el) {
     return () => { 
       createEditInput(el)
     };
@@ -255,7 +255,7 @@ function createEditInput(el){
       if(main.dataset.list==='allInbox') {
         renderInbox();
       } else {renderToDos(currentProject)};
-
+      edits.remove();
     };
   }
 }
