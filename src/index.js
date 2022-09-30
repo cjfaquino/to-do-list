@@ -228,6 +228,8 @@ function createEditInput(el){
   newDate.value = el.dueDate;
   newDesc.value = el.desc;
   
+  accept.id = 'editAccept';
+  cancel.id = 'editCancel';
   accept.textContent = 'Confirm'; 
   cancel.textContent = 'Cancel';
   div.append(labelName, newName, labelDesc, newDesc, labelDate, newDate, accept, cancel);
