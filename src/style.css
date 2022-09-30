@@ -96,3 +96,58 @@ header {
 .deleteBtn {
   margin-left: 10px;
 }
+
+.edits {
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(180, 180, 180, 0.397);
+}
+
+.editInputs {
+  z-index: 20;
+  padding: 20px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  height: 250px;
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.editInputs button {
+  padding: 5px;
+  width: 80px;
+}
+
+#editName,
+#editDesc {
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px;
+  font-size: .8rem;
+}
+
+#editName {
+  width: 100%;
+}
+
+#editDesc {
+  height: 80px;
+  width: 100%;
+  resize: none;
+}
+
+#editAccept {
+  margin-left: auto;
+}
