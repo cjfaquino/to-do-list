@@ -2,28 +2,13 @@ import './style.css';
 
 import { List } from './components/List';
 import { ToDo } from './components/ToDo';
+import { test } from './components/test';
+
 
 // let inboxList = new List('Inbox');
 let projects = [];
 let currentProject;
 
-
-//test data
-const test1 = new ToDo('test1', new Date().toISOString().split('T')[0])
-const test2 = new ToDo('test2', new Date().toISOString().split('T')[0])
-const test3 = new ToDo('test3')
-
-
-const project1 = createNewProject('Project');
-const project2 = createNewProject('Cleaning');
-
-console.log(projects);
-
-
-project1.list.push(test3)
-project1.list.push(test1)
-project2.list.push(test2)
-test1.toggleComp();
 
 const main = document.querySelector('main')
 const inbox = main.querySelector('#inbox')
@@ -41,21 +26,12 @@ projectsBtn.addEventListener('click', createNewInput(projectsView, 'project'))
 listBtn.addEventListener('click', createNewInput(listView, 'todo'))
 inbox.addEventListener('click', renderInbox)
 
-
+test();
 renderProjects();
 renderInbox();
 
-// function combineAllToDos(){
-//   inboxList.list = [];
-//   projects.forEach(el => {
-//     el.list.forEach(item => {
-//       inboxList.list.push(item);
-//     })
-//   })
-// }
 
 function renderInbox(){
-  // combineAllToDos();
   listBtn.remove();
   main.dataset.list = 'allInbox'
   listTitle.textContent = 'Inbox';
@@ -322,7 +298,7 @@ function createNewTodo(name, newDate) {
   currentProject.list.push(todo);
 }
 
-function createNewProject(name){
+export function createNewProject(name){
   const list = new List(name);
   projects.push(list);
   return list;
