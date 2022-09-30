@@ -84,7 +84,7 @@ header {
 .topRow {
   display: flex;
   align-items: center;
-  max-width: 536px;
+  max-width: 515px;
   margin-bottom: 15px;
 }
 
