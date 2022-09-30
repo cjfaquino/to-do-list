@@ -13,6 +13,9 @@ export const test = () => {
   project1.list.push(todo);
   todo.toggleComp();
 
+  const todo9 = new ToDo('Create currently selected project function', '2022-10-01');
+  project1.list.push(todo9);
+
   const todo1 = new ToDo('Sort dates', '2022-10-01');
   project1.list.push(todo1);
 
