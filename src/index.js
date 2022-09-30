@@ -97,7 +97,8 @@ function createNewToDoDOM(el, projectArray) {
   edit.classList.add('hide');
   del.classList.add('hide');
   if(el.completed){
-    li.classList.add('strike');
+    p.classList.add('strike');
+    span.classList.add('strike');
     check.checked = true;
     edit.classList.remove('hide')
     del.classList.remove('hide')
@@ -147,9 +148,11 @@ function createNewToDoDOM(el, projectArray) {
     return () => {
       el.toggleComp();
       if(!el.completed){
-        li.classList.remove('strike')
+        p.classList.remove('strike')
+        span.classList.remove('strike')
       } else {
-        li.classList.add('strike')
+        p.classList.add('strike')
+        span.classList.add('strike')
       } 
     };
   }
