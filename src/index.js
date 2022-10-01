@@ -19,17 +19,51 @@ const projectsBtn = main.querySelector('.projectsBtn')
 const list = main.querySelector('.list')
 const listView = list.querySelector('.listView')
 const listBtn = list.querySelector('.listBtn')
+const sortDateBtn = list.querySelector('.sortDate');
 
 let listTitle = list.querySelector('.listTitle');
 
 projectsBtn.addEventListener('click', createNewInput(projectsView, 'project'))
 listBtn.addEventListener('click', createNewInput(listView, 'todo'))
 inbox.addEventListener('click', renderInbox)
+sortDateBtn.addEventListener('click', sortDate)
+
 
 test();
 renderProjects();
 renderInbox();
 
+function sortDate() {
+  if (!sortDateBtn.dataset.sort) {
+    sortDateBtn.dataset.sort = 'asc'
+  }
+  projects.forEach(el => {
+    el.list.sort(function (a, b) {
+      if (sortDateBtn.dataset.sort === 'asc') {
+        if (a.dueDate > b.dueDate)
+          return 1;
+        if (a.dueDate < b.dueDate)
+          return -1;
+      }
+      else if(sortDateBtn.dataset.sort === 'dsc'){
+        if (a.dueDate > b.dueDate)
+          return -1;
+        if (a.dueDate < b.dueDate)
+          return 1;
+      }
+      return 0;
+    });
+  });
+  if (sortDateBtn.dataset.sort === 'asc') {
+    sortDateBtn.dataset.sort = 'dsc';
+    sortDateBtn.textContent = 'ascending'
+  } else if(sortDateBtn.dataset.sort === 'dsc') {
+    sortDateBtn.dataset.sort = 'asc';
+    sortDateBtn.textContent = 'descending'
+  }
+  removeAllChildNodes(listView)
+  renderToDos(currentProject)
+}
 
 function renderInbox(){
   listBtn.remove();
