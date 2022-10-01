@@ -19,6 +19,7 @@ const projectsBtn = main.querySelector('.projectsBtn')
 const list = main.querySelector('.list')
 const listView = list.querySelector('.listView')
 const listBtn = list.querySelector('.listBtn')
+const dateLabel = list.querySelector('.dueDate')
 const sortDateBtn = list.querySelector('.sortDate');
 
 let listTitle = list.querySelector('.listTitle');
@@ -67,6 +68,7 @@ function sortDate() {
 
 function renderInbox(){
   listBtn.remove();
+  sortDateBtn.remove();
   main.dataset.list = 'allInbox'
   listTitle.textContent = 'Inbox';
   removeAllChildNodes(listView)
@@ -211,6 +213,7 @@ function createNewProjectDOM(item, index) {
       currentProject = item;
       listTitle.textContent = item.name;
       listTitle.after(listBtn)
+      dateLabel.append(sortDateBtn)
       removeAllChildNodes(listView);
       renderToDos(projects[index]);
     };
