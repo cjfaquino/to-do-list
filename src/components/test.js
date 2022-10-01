@@ -5,13 +5,18 @@ export const test = () => {
   const project1 = createNewProject('Project');
   const project2 = createNewProject('Cleaning');
   
-  const todo0 = new ToDo('Create delete button', '2022-09-29');
+  const todo0 = new ToDo('Create delete button', '2022-09-29', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Amet est placerat in egestas erat.');
   project1.list.push(todo0);
   todo0.toggleComp();
 
   const todo = new ToDo('Create a way to update values', '2022-09-29');
   project1.list.push(todo);
   todo.toggleComp();
+
+  const todo10 = new ToDo('Expand for description', '2022-09-30', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Amet est placerat in egestas erat.');
+  project1.list.push(todo10);
+  todo10.toggleComp();
+
 
   const todo9 = new ToDo('Create currently selected project function', '2022-10-01');
   project1.list.push(todo9);
