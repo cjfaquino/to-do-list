@@ -1,3 +1,7 @@
+:root {
+  --sidebar-padding: 0 20px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -55,10 +59,15 @@ header {
 
 .sidebar li {
   margin-top: 10px;
-  padding: 0 20px;
+  padding: var(--sidebar-padding);
+}
+
+.sidebar li:nth-child(4){
+  padding: 0;
 }
 
 .projects {
+  padding: var(--sidebar-padding);
   display: flex;
   margin-bottom: 10px;
   align-items: center;
@@ -77,6 +86,7 @@ header {
 
 .projectItem span{
   margin-right: 10px;
+  padding-left: 20px;
 }
 
 .projectItem p {
