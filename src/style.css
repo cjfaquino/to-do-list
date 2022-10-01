@@ -21,6 +21,11 @@ header {
   grid-area: "header";
 }
 
+.collapse{
+  display: none;
+  overflow: hidden;
+}
+
 .hide {
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
@@ -106,6 +111,10 @@ header {
   align-items: center;
   margin-bottom: 5px;
   font-size: 1.1rem;
+}
+
+.todoDesc {
+  grid-column: 2 / span 4;
 }
 
 .editBtn {
