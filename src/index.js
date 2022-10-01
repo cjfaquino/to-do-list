@@ -56,6 +56,7 @@ function createNewToDoDOM(el, projectArray) {
   const edit = document.createElement('div');
   const del = document.createElement('div');
   const check = document.createElement('input');
+  const desc = document.createElement('div');
   check.type = 'checkbox';
   check.classList.add('checkComplete');
   edit.textContent = 'edit'; //placeholder for icon
@@ -64,12 +65,11 @@ function createNewToDoDOM(el, projectArray) {
   del.classList.add('deleteBtn');
   p.textContent = el.name;
   span.textContent = el.dueDate;
-  li.appendChild(check);
-  li.appendChild(p);
-  li.appendChild(span);
-  li.appendChild(edit)
-  li.appendChild(del)
+  desc.textContent = el.desc;
+  li.append(check, p, span, edit, del, desc)
   li.classList.add('todo');
+  desc.classList.add('todoDesc');
+  desc.classList.add('collapse');
   edit.classList.add('hide');
   del.classList.add('hide');
   if(el.completed){
@@ -84,7 +84,12 @@ function createNewToDoDOM(el, projectArray) {
   li.addEventListener('mouseenter', unhideOptions(del, edit))
   li.addEventListener('mouseleave', hideOptions(el, del, edit))
   check.addEventListener('click', toggleCompleted(el))
+  p.addEventListener('click', toggleDesc)
   return li;
+
+  function toggleDesc() {
+      desc.classList.toggle('collapse');
+  }
 
   function editTodo(el) {
     return () => { 
