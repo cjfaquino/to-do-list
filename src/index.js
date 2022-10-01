@@ -11,7 +11,9 @@ let currentProject;
 
 
 const main = document.querySelector('main')
-const inbox = main.querySelector('#inbox')
+const sidebar = main.querySelector('.sidebar')
+const inbox = sidebar.querySelector('#inbox')
+const selectable = sidebar.querySelectorAll('.selectable')
 
 const projectsView = main.querySelector('.projectsView')
 const projectsBtn = main.querySelector('.projectsBtn')
@@ -28,11 +30,23 @@ projectsBtn.addEventListener('click', createNewInput(projectsView, 'project'))
 listBtn.addEventListener('click', createNewInput(listView, 'todo'))
 inbox.addEventListener('click', renderInbox)
 sortDateBtn.addEventListener('click', sortDate)
+selectable.forEach(el=>{
+  el.addEventListener('click', colorSelected)
+})
 
 
 test();
 renderProjects();
 renderInbox();
+
+
+function colorSelected(e){
+  const selectable = sidebar.querySelectorAll('.selectable')
+  selectable.forEach(el=>{
+    el.classList.remove('selected');
+  })
+  e.currentTarget.classList.add('selected')
+}
 
 function sortDate() {
   if (!sortDateBtn.dataset.sort) {
@@ -192,9 +206,11 @@ function createNewProjectDOM(item, index) {
   span.classList.add('projectLength');
   p.textContent = item.name;
   li.classList.add('projectItem');
+  li.classList.add('selectable');
   li.appendChild(span);
   li.appendChild(p);
   li.appendChild(del);
+  li.addEventListener('click', colorSelected)
   p.addEventListener('click', renderSelected)
   del.addEventListener('click', deleteProject(item))
   return li;
