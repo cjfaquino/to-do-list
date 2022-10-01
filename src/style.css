@@ -21,6 +21,12 @@ header {
   grid-area: "header";
 }
 
+.selected {
+  background-color: rgb(226, 226, 226);
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
 .collapse{
   display: none;
   overflow: hidden;
@@ -77,6 +83,7 @@ header {
   margin-right: 0;
   margin-left: auto;
 }
+
 
 #notes {
   margin-top: 50px;
