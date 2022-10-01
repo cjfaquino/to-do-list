@@ -3,7 +3,7 @@ import { createNewProject } from '../index';
 
 export const test = () => {
   const project1 = createNewProject('Project');
-  const project2 = createNewProject('Cleaning');
+  const project2 = createNewProject('Chores');
   
   const todo0 = new ToDo('Create delete button', '2022-09-29', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Amet est placerat in egestas erat.');
   project1.list.push(todo0);
@@ -46,4 +46,7 @@ export const test = () => {
   const todo6 = new ToDo('Buy groceries', new Date().toISOString().split('T')[0]);
   project2.list.push(todo6);
 
+  const todo11 = new ToDo('Take out the trash', new Date().toISOString().split('T')[0]);
+  project2.list.push(todo11);
+  todo11.toggleComp();
 };
