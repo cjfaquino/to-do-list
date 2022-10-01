@@ -20,9 +20,11 @@ export const test = () => {
 
   const todo9 = new ToDo('Create currently selected project function', '2022-10-01');
   project1.list.push(todo9);
+  todo9.toggleComp();
 
   const todo1 = new ToDo('Sort dates', '2022-10-01');
   project1.list.push(todo1);
+  todo1.toggleComp()
 
   const todo8 = new ToDo('Change date format', '2022-10-01');
   project1.list.push(todo8);
