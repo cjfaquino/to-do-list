@@ -212,6 +212,7 @@ function createNewProjectDOM(item, index) {
   li.appendChild(del);
   li.addEventListener('click', colorSelected)
   p.addEventListener('click', renderSelected)
+  span.addEventListener('click', renderSelected)
   del.addEventListener('click', deleteProject(item))
   return li;
 
