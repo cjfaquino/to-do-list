@@ -100,12 +100,20 @@ header {
 .list {
   grid-area: list;
   padding: 0 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topRow,
+.listView {
+  width: 900px;
 }
 
 .topRow {
   display: flex;
   align-items: center;
-  width: 515px;
   margin-bottom: 15px;
 }
 
@@ -115,11 +123,9 @@ header {
 
 .dueDate {
   margin-left: auto;
+  margin-right: 85px;
 }
 
-.listView {
-  width: 600px;
-}
 
 .todo {
   display: grid;
