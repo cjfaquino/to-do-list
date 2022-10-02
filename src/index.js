@@ -41,6 +41,7 @@ renderInbox();
 
 
 function changeDateFormat(dateISOstring){
+  if(!dateISOstring) return '';
   const split = dateISOstring.split('-');
   const newDate = `${split[1]}/${split[2]}/${split[0]}`;
   return newDate
