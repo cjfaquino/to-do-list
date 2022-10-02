@@ -314,32 +314,53 @@ function createEditInput(el){
 
 function createNewInput(view, type) {
   return () => {
+    const div = document.createElement('div');
     const newName = document.createElement('input');
     const newDate = document.createElement('input');
+    const confirm = document.createElement('button');
+    const cancel = document.createElement('button')
+    div.classList.add('newInputs');
+    newName.classList.add('newName');
+    newDate.classList.add('newDate');
+    confirm.classList.add('confirmNew');
+    cancel.classList.add('cancelNew');
+    newName.placeholder = `add a ${type}...`
     newName.type = 'text';
     newDate.type = 'date';
+    confirm.textContent = 'Confirm'
+    cancel.textContent = 'Cancel'
 
     removeAllChildNodes(view);
-    view.appendChild(newName);
-    newName.select();
+    div.append(newName);
+    
     
     if(type==='project'){
+      div.append(confirm, cancel)
       renderProjects();
       newName.addEventListener('keypress', createNewItem(
-        newName, projectsView, type))};
+        newName, projectsView, type))
+      confirm.addEventListener('click', createNewItem(
+        newName, projectsView, type))
+      };
  
     if(type==='todo'){
-      view.appendChild(newDate);
+      div.append(newDate, confirm, cancel);
       renderToDos(currentProject);
       newName.addEventListener('keypress', createNewItem(
-        newName, listView, type, newDate))};
-
+        newName, listView, type, newDate))
+      confirm.addEventListener('click', createNewItem(
+        newName, listView, type, newDate))
+      };
+    
+    cancel.addEventListener('click', ()=>div.remove());
+    view.append(div);
+    newName.select();
   };
 }
 
 function createNewItem(newName, view, type, newDate) {
   return (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.target.classList == 'confirmNew') {
       const name = newName.value;
       removeAllChildNodes(view);
 
