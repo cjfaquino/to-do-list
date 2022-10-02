@@ -321,12 +321,14 @@ function createNewInput(view, type) {
     const newDesc = document.createElement('textarea');
     const confirm = document.createElement('button');
     const cancel = document.createElement('button');
+    const bottomRow = document.createElement('div');
     div.classList.add('newInputs');
     newName.classList.add('newName');
     newDate.classList.add('newDate');
     newDesc.classList.add('newDesc');
     confirm.classList.add('confirmNew');
     cancel.classList.add('cancelNew');
+    bottomRow.classList.add('newInputBottom');
     newName.placeholder = `add a ${type}...`
     newDesc.placeholder = 'add a breif description'
     newName.type = 'text';
@@ -348,7 +350,8 @@ function createNewInput(view, type) {
       };
  
     if(type==='todo'){
-      div.append(newDesc, newDate, confirm, cancel);
+      bottomRow.append(newDate, confirm, cancel)
+      div.append(newDesc, bottomRow);
       renderToDos(currentProject);
       newName.addEventListener('keypress', createNewItem(
         newName, listView, type, newDate, newDesc))
