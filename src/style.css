@@ -131,10 +131,16 @@ header {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  padding-top: 20px;
+}
+
+.listTitle {
+  margin-left: 40px;
 }
 
 .listBtn {
   padding: 5px 15px;
+  margin-left: 20px;
 }
 
 .dueDate {
