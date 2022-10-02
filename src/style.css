@@ -107,7 +107,7 @@ header {
 
 .topRow,
 .listView {
-  width: 900px;
+  width: max(500px, 100%);
 }
 
 .topRow {
