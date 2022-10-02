@@ -40,6 +40,12 @@ renderProjects();
 renderInbox();
 
 
+function changeDateFormat(dateISOstring){
+  const split = dateISOstring.split('-');
+  const newDate = `${split[1]}/${split[2]}/${split[0]}`;
+  return newDate
+}
+
 function colorSelected(e){
   const selectable = sidebar.querySelectorAll('.selectable')
   selectable.forEach(el=>{
@@ -114,7 +120,7 @@ function createNewToDoDOM(el, projectArray) {
   del.textContent = 'del'; //placeholder for icon
   del.classList.add('deleteBtn');
   p.textContent = el.name;
-  span.textContent = el.dueDate;
+  span.textContent = changeDateFormat(el.dueDate);
   desc.textContent = el.desc;
   li.append(check, p, span, edit, del, desc)
   li.classList.add('todo');
