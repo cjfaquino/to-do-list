@@ -210,10 +210,11 @@ function createNewProjectDOM(item, index) {
   const del = document.createElement('div');
   del.innerHTML = '<i class="fa-solid fa-delete-left"></i>';
   span.textContent = item.list.length;
-  span.classList.add('projectLength');
   p.textContent = item.name;
+  span.classList.add('projectLength');
   li.classList.add('projectItem');
   li.classList.add('selectable');
+  del.classList.add('hide');
   li.appendChild(span);
   li.appendChild(p);
   li.appendChild(del);
@@ -221,6 +222,8 @@ function createNewProjectDOM(item, index) {
   p.addEventListener('click', renderSelected)
   span.addEventListener('click', renderSelected)
   del.addEventListener('click', deleteProject(item))
+  li.addEventListener('mouseenter', ()=> {del.classList.remove('hide')})
+  li.addEventListener('mouseleave', ()=> {del.classList.add('hide')})
   return li;
 
   function deleteProject(item) {
