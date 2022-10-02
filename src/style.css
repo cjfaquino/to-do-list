@@ -12,6 +12,9 @@
 ul {
   list-style-type: none;
 }
+html, body{
+  height: 100%;
+}
 
 main {
   display: grid;
@@ -20,14 +23,21 @@ main {
   grid-template-areas: 
   "header header"
   "sidebar list";
+  height: 100%;
 }
 
 header {
   grid-area: header;
 }
 
+.selectable:hover {
+  background-color: rgb(235, 235, 235);
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
 .selected {
-  background-color: rgb(226, 226, 226);
+  background-color: rgb(255, 255, 255);
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
 }
@@ -56,6 +66,8 @@ header {
   grid-area: sidebar;
   font-size: 1.5rem;
   font-weight: 600;
+  height: 100%;
+  background-color: rgb(238, 246, 255);
 }
 
 .sidebar li {
