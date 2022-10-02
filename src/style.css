@@ -79,7 +79,7 @@ header {
   padding: var(--sidebar-padding);
 }
 
-.sidebar li:nth-child(4){
+#projectsList{
   padding: 0;
 }
 
