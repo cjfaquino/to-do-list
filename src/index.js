@@ -318,18 +318,21 @@ function createNewInput(view, type) {
     const div = document.createElement('div');
     const newName = document.createElement('input');
     const newDate = document.createElement('input');
+    const newDesc = document.createElement('textarea');
     const confirm = document.createElement('button');
-    const cancel = document.createElement('button')
+    const cancel = document.createElement('button');
     div.classList.add('newInputs');
     newName.classList.add('newName');
     newDate.classList.add('newDate');
+    newDesc.classList.add('newDesc');
     confirm.classList.add('confirmNew');
     cancel.classList.add('cancelNew');
     newName.placeholder = `add a ${type}...`
+    newDesc.placeholder = 'add a breif description'
     newName.type = 'text';
     newDate.type = 'date';
-    confirm.textContent = 'Confirm'
-    cancel.textContent = 'Cancel'
+    confirm.textContent = 'Confirm';
+    cancel.textContent = 'Cancel';
 
     removeAllChildNodes(view);
     div.append(newName);
@@ -345,12 +348,12 @@ function createNewInput(view, type) {
       };
  
     if(type==='todo'){
-      div.append(newDate, confirm, cancel);
+      div.append(newDesc, newDate, confirm, cancel);
       renderToDos(currentProject);
       newName.addEventListener('keypress', createNewItem(
-        newName, listView, type, newDate))
+        newName, listView, type, newDate, newDesc))
       confirm.addEventListener('click', createNewItem(
-        newName, listView, type, newDate))
+        newName, listView, type, newDate, newDesc))
       };
     
     cancel.addEventListener('click', ()=>div.remove());
@@ -359,7 +362,7 @@ function createNewInput(view, type) {
   };
 }
 
-function createNewItem(newName, view, type, newDate) {
+function createNewItem(newName, view, type, newDate, newDesc) {
   return (e) => {
     if (e.key === 'Enter' || e.target.classList == 'confirmNew') {
       const name = newName.value;
@@ -371,7 +374,7 @@ function createNewItem(newName, view, type, newDate) {
       }
 
       if(type==='todo'){
-        createNewTodo(name, newDate);
+        createNewTodo(name, newDate, newDesc);
         renderToDos(currentProject);
         removeAllChildNodes(projectsView);
         renderProjects();
@@ -380,8 +383,8 @@ function createNewItem(newName, view, type, newDate) {
   };
 }
 
-function createNewTodo(name, newDate) {
-  const todo = new ToDo(name, newDate.value);
+function createNewTodo(name, newDate, newDesc) {
+  const todo = new ToDo(name, newDate.value, newDesc.value);
   currentProject.list.push(todo);
 }
 
