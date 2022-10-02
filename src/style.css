@@ -99,7 +99,6 @@ header {
 
 .list {
   grid-area: list;
-  padding: 0 30px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -133,10 +132,20 @@ header {
   align-items: center;
   margin-bottom: 5px;
   font-size: 1.1rem;
+  padding: 0 10px;
+}
+
+.todo:nth-child(even){
+  background-color: rgb(248, 248, 248);
 }
 
 .todoDesc {
   grid-column: 2 / span 4;
+}
+
+.editBtn,
+.deleteBtn {
+  text-align: right;
 }
 
 .editBtn {
