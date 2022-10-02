@@ -116,9 +116,9 @@ function createNewToDoDOM(el, projectArray) {
   const desc = document.createElement('div');
   check.type = 'checkbox';
   check.classList.add('checkComplete');
-  edit.textContent = 'edit'; //placeholder for icon
+  edit.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
   edit.classList.add('editBtn');
-  del.textContent = 'del'; //placeholder for icon
+  del.innerHTML = '<i class="fa-solid fa-delete-left"></i>';
   del.classList.add('deleteBtn');
   p.textContent = el.name;
   span.textContent = changeDateFormat(el.dueDate);
@@ -208,7 +208,7 @@ function createNewProjectDOM(item, index) {
   const span = document.createElement('span');
   const p = document.createElement('p');
   const del = document.createElement('div');
-  del.textContent = 'del'; //placeholder for icon
+  del.innerHTML = '<i class="fa-solid fa-delete-left"></i>';
   span.textContent = item.list.length;
   span.classList.add('projectLength');
   p.textContent = item.name;
