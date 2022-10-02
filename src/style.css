@@ -122,7 +122,7 @@ header {
 
 .dueDate {
   margin-left: auto;
-  margin-right: 85px;
+  margin-right: 95px;
 }
 
 
@@ -131,7 +131,7 @@ header {
   grid-template-columns: 20px 1fr 100px 30px 30px;
   align-items: center;
   margin-bottom: 5px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   padding: 0 10px;
 }
 
@@ -141,6 +141,8 @@ header {
 
 .todoDesc {
   grid-column: 2 / span 4;
+  font-size: 1rem;
+  padding: 5px;
 }
 
 .editBtn,
