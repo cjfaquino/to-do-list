@@ -28,6 +28,7 @@ export const test = () => {
 
   const todo8 = new ToDo('Change date format', '2022-10-01');
   project1.list.push(todo8);
+  todo8.toggleComp();
 
   const todo2 = new ToDo('Filter by today', '2022-10-01');
   project1.list.push(todo2);
