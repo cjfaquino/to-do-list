@@ -128,6 +128,20 @@ header {
   border-radius: 50%;
 }
 
+.delProject,
+.delTodo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: grey;
+}
+
+.delProject:hover,
+.delTodo:hover {
+  color: red;
+  transition: color 0.5s ease;
+}
+
 #notes {
   margin-top: 50px;
 }
@@ -196,10 +210,6 @@ header {
 
 .editBtn {
   color: rgba(0, 0, 0, 0.2);
-}
-
-.deleteBtn {
-  color: rgba(255, 0, 0, 0.7);
 }
 
 .edits {
