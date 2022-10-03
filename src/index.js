@@ -13,6 +13,9 @@ let currentProject;
 const main = document.querySelector('main')
 const sidebar = main.querySelector('.sidebar')
 const inbox = sidebar.querySelector('#inbox')
+const today = sidebar.querySelector('#today')
+const weekly = sidebar.querySelector('#week')
+const notes = sidebar.querySelector('#notes')
 const selectable = sidebar.querySelectorAll('.selectable')
 
 const projectsView = main.querySelector('.projectsView')
@@ -29,6 +32,9 @@ let listTitle = list.querySelector('.listTitle');
 projectsBtn.addEventListener('click', createNewInput(projectsView, 'project'))
 listBtn.addEventListener('click', createNewInput(listView, 'todo'))
 inbox.addEventListener('click', renderInbox)
+today.addEventListener('click', renderToday)
+weekly.addEventListener('click', renderWeekly)
+notes.addEventListener('click', renderNotes)
 sortDateBtn.addEventListener('click', sortDate)
 selectable.forEach(el=>{
   el.addEventListener('click', colorSelected)
@@ -88,6 +94,7 @@ function sortDate() {
 }
 
 function renderInbox(){
+  listTitle.after(dateLabel)
   listBtn.remove();
   sortDateBtn.remove();
   main.dataset.list = 'allInbox'
@@ -96,6 +103,30 @@ function renderInbox(){
   projects.forEach(el=>{
     renderToDos(el)
   })
+}
+
+function renderToday(){
+  listTitle.after(dateLabel)
+  listBtn.remove();
+  removeAllChildNodes(listView)
+  main.dataset.list = 'TodaySection'
+  listTitle.textContent = 'Today';
+}
+
+function renderWeekly(){
+  listTitle.after(dateLabel)
+  listBtn.remove();
+  removeAllChildNodes(listView)
+  main.dataset.list = 'WeeklySection'
+  listTitle.textContent = 'This Week';
+}
+
+function renderNotes(){
+  removeAllChildNodes(listView)
+  dateLabel.remove();
+  listBtn.remove();
+  main.dataset.list = 'NotesSection'
+  listTitle.textContent = 'Notes';
 }
 
 function renderToDos(projectArray) {
