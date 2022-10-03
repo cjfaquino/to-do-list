@@ -136,16 +136,22 @@ header {
 }
 
 .delProject,
-.delTodo {
+.delTodo,
+.editTodo {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: grey;
+  color: rgb(0, 0, 0, .2);
 }
 
 .delProject:hover,
 .delTodo:hover {
   color: red;
+  transition: color 0.5s ease;
+}
+
+.editTodo:hover {
+  color: rgba(0, 0, 0, 0.5);
   transition: color 0.5s ease;
 }
 
@@ -209,17 +215,6 @@ header {
   font-size: 1rem;
 }
 
-.editTodo {
-  color: rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.editTodo:hover {
-  color: rgba(0, 0, 0, 0.5);
-  transition: color 0.5s ease;
-}
 
 .edits {
   height: 100vh;
