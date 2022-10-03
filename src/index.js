@@ -211,6 +211,8 @@ function createNewProjectDOM(item, index) {
   del.innerHTML = '<i class="fa-solid fa-delete-left"></i>';
   span.textContent = item.list.length;
   p.textContent = item.name;
+  p.classList.add('projectName');
+  del.classList.add('delProject');
   span.classList.add('projectLength');
   li.classList.add('projectItem');
   li.classList.add('selectable');
