@@ -70,7 +70,7 @@ header {
 }
 
 .strike {
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
   opacity: .2;
 }
 
@@ -214,6 +214,7 @@ input[type='checkbox'] {
 
 .todoDate {
   font-size: 1rem;
+  color: red;
 }
 
 
