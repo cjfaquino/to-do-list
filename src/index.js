@@ -145,27 +145,31 @@ function createNewToDoDOM(el, projectArray) {
   const del = document.createElement('div');
   const check = document.createElement('input');
   const desc = document.createElement('div');
+
   check.type = 'checkbox';
-  check.classList.add('checkComplete');
   edit.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
-  edit.classList.add('editTodo');
   del.innerHTML = '<i class="fa-solid fa-delete-left"></i>';
-  del.classList.add('delTodo');
   p.textContent = el.name;
   span.textContent = changeDateFormat(el.dueDate);
   desc.textContent = el.desc;
-  li.append(check, p, span, edit, del, desc)
+
+  check.classList.add('checkComplete');
   li.classList.add('todo');
   p.classList.add('todoName')
   span.classList.add('todoDate');
   desc.classList.add('todoDesc');
   desc.classList.add('collapse');
+  edit.classList.add('editTodo');
   edit.classList.add('hide');
   del.classList.add('hide');
+  del.classList.add('delTodo');
+
+  li.append(check, p, span, edit, del, desc)
+
   if(el.completed){
+    check.checked = true;
     p.classList.add('strike');
     span.classList.add('strike');
-    check.checked = true;
     edit.classList.remove('hide')
     del.classList.remove('hide')
   }
@@ -241,22 +245,24 @@ function createNewProjectDOM(item, index) {
   const span = document.createElement('span');
   const p = document.createElement('p');
   const del = document.createElement('div');
+
   del.innerHTML = '<i class="fa-solid fa-delete-left"></i>';
   span.textContent = item.list.length;
   p.textContent = item.name;
+
   p.classList.add('projectName');
   del.classList.add('delProject');
   span.classList.add('projectLength');
   li.classList.add('projectItem');
   li.classList.add('selectable');
   del.classList.add('hide');
-  li.appendChild(span);
-  li.appendChild(p);
-  li.appendChild(del);
-  li.addEventListener('click', colorSelected)
+
+  li.append(span, p, del);
+
   p.addEventListener('click', renderSelected)
   span.addEventListener('click', renderSelected)
   del.addEventListener('click', deleteProject(item))
+  li.addEventListener('click', colorSelected)
   li.addEventListener('mouseenter', ()=> {del.classList.remove('hide')})
   li.addEventListener('mouseleave', ()=> {del.classList.add('hide')})
   return li;
@@ -305,22 +311,23 @@ function createEditInput(el){
   labelName.textContent = 'Name:';
   labelDate.textContent = 'Due:';
   labelDesc.textContent = 'Description:';
+  accept.textContent = 'Confirm'; 
+  cancel.textContent = 'Cancel';
   labelName.htmlFor = 'editName';
   labelDate.htmlFor = 'editDate';
   labelDesc.htmlFor = 'editDesc';
   newName.id = 'editName';
   newDate.id = 'editDate';
   newDesc.id = 'editDesc';
+  accept.id = 'editAccept';
+  cancel.id = 'editCancel';
   newName.type = 'text';
   newDate.type = 'date';
+
   newName.value = el.name;
   newDate.value = el.dueDate;
   newDesc.value = el.desc;
-  
-  accept.id = 'editAccept';
-  cancel.id = 'editCancel';
-  accept.textContent = 'Confirm'; 
-  cancel.textContent = 'Cancel';
+
   div.append(labelName, newName, labelDesc, newDesc, labelDate, newDate, accept, cancel);
   edits.append(div);
   main.append(edits)
@@ -360,6 +367,7 @@ function createNewInput(view, type) {
     const confirm = document.createElement('button');
     const cancel = document.createElement('button');
     const bottomRow = document.createElement('div');
+
     div.classList.add('newInputs');
     newName.classList.add('newName');
     newDate.classList.add('newDate');
@@ -367,10 +375,13 @@ function createNewInput(view, type) {
     confirm.classList.add('confirmNew');
     cancel.classList.add('cancelNew');
     bottomRow.classList.add('newInputBottom');
+
     newName.placeholder = `add a ${type}...`
     newDesc.placeholder = 'add a breif description'
+
     newName.type = 'text';
     newDate.type = 'date';
+    
     confirm.textContent = 'Confirm';
     cancel.textContent = 'Cancel';
 
