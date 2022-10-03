@@ -78,10 +78,10 @@ function sortDate() {
   });
   if (sortDateBtn.dataset.sort === 'asc') {
     sortDateBtn.dataset.sort = 'dsc';
-    sortDateBtn.textContent = 'ascending'
+    sortDateBtn.innerHTML = '<i class="fa-solid fa-sort-up"></i>'
   } else if(sortDateBtn.dataset.sort === 'dsc') {
     sortDateBtn.dataset.sort = 'asc';
-    sortDateBtn.textContent = 'descending'
+    sortDateBtn.innerHTML = '<i class="fa-solid fa-sort-down"></i>'
   }
   removeAllChildNodes(listView)
   renderToDos(currentProject)
