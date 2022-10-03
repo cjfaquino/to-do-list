@@ -196,24 +196,28 @@ input[type='checkbox'] {
 
 .todo {
   display: grid;
-  grid-template-columns: 20px 1fr 110px 25px 30px;
+  grid-template-columns: 15px 1fr 110px 25px 30px;
   align-items: center;
-  font-size: 1.2rem;
-  padding: 5px 10px;
+  font-size: 1rem;
+  padding: 10px 10px;
 }
 
 .todo:nth-child(even){
   background-color: rgb(250, 250, 250);
 }
 
+.todoName {
+  padding-left: 10px;
+}
+
 .todoDesc {
   grid-column: 2 / span 4;
-  font-size: 1rem;
+  font-size: .8rem;
   padding: 5px;
 }
 
 .todoDate {
-  font-size: 1rem;
+  font-size: .8rem;
   color: red;
 }
 
