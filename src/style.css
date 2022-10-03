@@ -319,3 +319,44 @@ input[type='checkbox'] {
   margin-left: auto;
   margin-right: 10px;
 }
+
+
+/* Remove default checkbox styles */
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: grey;
+  width: .9rem;
+  height: .9rem;
+  border: 0.1rem solid grey;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65rem;
+  height: 0.65rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  /* Checked color */
+  box-shadow: inset 1em 1em rgb(228, 228, 228);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
