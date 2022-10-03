@@ -117,14 +117,16 @@ function createNewToDoDOM(el, projectArray) {
   check.type = 'checkbox';
   check.classList.add('checkComplete');
   edit.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
-  edit.classList.add('editBtn');
+  edit.classList.add('editTodo');
   del.innerHTML = '<i class="fa-solid fa-delete-left"></i>';
-  del.classList.add('deleteBtn');
+  del.classList.add('delTodo');
   p.textContent = el.name;
   span.textContent = changeDateFormat(el.dueDate);
   desc.textContent = el.desc;
   li.append(check, p, span, edit, del, desc)
   li.classList.add('todo');
+  p.classList.add('todoName')
+  span.classList.add('todoDate');
   desc.classList.add('todoDesc');
   desc.classList.add('collapse');
   edit.classList.add('hide');

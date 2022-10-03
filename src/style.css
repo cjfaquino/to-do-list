@@ -198,17 +198,17 @@ header {
   padding: 5px;
 }
 
-.todo span {
+.todoDate {
   font-size: 1rem;
 }
 
-.todo span,
-.editBtn,
-.deleteBtn {
+.todoDate,
+.editTodo,
+.delTodo {
   text-align: right;
 }
 
-.editBtn {
+.editTodo {
   color: rgba(0, 0, 0, 0.2);
 }
 
