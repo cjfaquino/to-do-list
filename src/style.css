@@ -111,7 +111,8 @@ header {
   padding-left: 30px !important;
 }
 
-.projectItem p {
+.projectName {
+  padding: 0 5px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
