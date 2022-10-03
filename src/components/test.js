@@ -1,5 +1,5 @@
 import { ToDo } from './ToDo';
-import { createNewProject } from '../index';
+import { createNewProject } from "./createNewInput";
 
 export const test = () => {
   const project1 = createNewProject('Project');
