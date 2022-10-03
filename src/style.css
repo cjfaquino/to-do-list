@@ -74,6 +74,13 @@ header {
   opacity: .2;
 }
 
+.selectable:hover,
+.todoName:hover,
+.editTodo:hover,
+.delTodo:hover {
+  cursor: pointer;
+}
+
 .sidebar {
   padding: 30px 30px 30px 0;
   grid-area: sidebar;
