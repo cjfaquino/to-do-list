@@ -8,8 +8,8 @@ addNoteBtn.classList.add('newNote')
 
 addNoteBtn.addEventListener('click', createNewNote)
 
-export function createNewNote() {
-  const note = new Note()
+export function createNewNote(text) {
+  const note = new Note(text)
   createNewNoteDOM(note);
   notesArr.push(note)
   setLocalStorage('notes', notesArr)
