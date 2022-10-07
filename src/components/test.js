@@ -1,7 +1,9 @@
 import { ToDo, toggleToDoCompleted } from './ToDo';
 import { createNewProject } from "./createNewInput";
+import { Note } from './Note';
+import { notesArr } from '..';
 
-export const test = () => {
+export const todos = () => {
   const project1 = createNewProject('Project');
   const project2 = createNewProject('Chores');
   
@@ -65,3 +67,14 @@ export const test = () => {
   // todo11.toggleComp();
   toggleToDoCompleted(todo11)
 };
+
+export const notes = () => {
+  const note0 = new Note('oranges\nbananas\napples\ngrapes')
+  notesArr.push(note0)
+
+  const note1 = new Note('CPU\nGPU\nRAM\nPSU\nSSD\nMotherboard')
+  notesArr.push(note1)
+
+  const note2 = new Note('one\ntwo\nthree\nfour')
+  notesArr.push(note2)
+}
