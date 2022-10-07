@@ -1,6 +1,6 @@
 import './style.css';
 
-import { test } from './components/test';
+import * as demo from './components/test';
 import { createNewInput } from './components/createNewInput';
 import { renderInbox, renderToday, renderWeekly, renderNotes, renderProjects, renderToDos } from './components/renderItems';
 
@@ -118,10 +118,11 @@ function getLocalStorage(storedName){
 
 
 if(typeof localStorage.projects === 'undefined') {
-  test();
+  demo.todos();
   setLocalStorage('projects', projects)
 }
-if(typeof localStorage.notes === 'undefined') {
+if (typeof localStorage.notes === 'undefined') {
+  demo.notes();
   setLocalStorage('notes', notesArr)
 }
 
