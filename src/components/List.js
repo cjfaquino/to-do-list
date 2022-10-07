@@ -3,10 +3,6 @@ export class List {
     this.name = name;
   }
   list = [];
-
-  // delTodo(item) {
-  //   this.list.splice(this.list.indexOf(item), 1);
-  // }
 }
 
 export function delTodo(project, todo) {

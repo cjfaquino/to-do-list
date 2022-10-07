@@ -76,7 +76,6 @@ export function createNewToDoDOM(el, projectArray) {
 
   function deleteTodo(projectArray) {
     return () => {
-      // projectArray.delTodo(el);
       delTodo(projectArray, el);
       removeAllChildNodes(listView);
       removeAllChildNodes(projectsView);
@@ -89,7 +88,6 @@ export function createNewToDoDOM(el, projectArray) {
 
   function toggleCompleted(el) {
     return () => {
-      // el.toggleComp();
       toggleToDoCompleted(el);
       setLocalStorage('projects', projects);
       if (!el.completed) {
