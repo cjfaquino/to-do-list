@@ -15,6 +15,9 @@ export function updateCurrentProject(item) {
   return currentProject = item;
 }
 
+function updateNotes(item) {
+  return notesArr = item;
+}
 
 export const main = document.querySelector('main')
 const sidebar = main.querySelector('.sidebar')
@@ -105,7 +108,12 @@ export function setLocalStorage(storedName, dataArr){
 }
 
 function getLocalStorage(storedName){
-  updateProjects(JSON.parse(localStorage.getItem(storedName)))
+  if (storedName === 'projects') {
+    updateProjects(JSON.parse(localStorage.getItem(storedName)))
+  } 
+  else if (storedName === 'notes') {
+    updateNotes(JSON.parse(localStorage.getItem(storedName)))
+  }
 }
 
 
@@ -113,8 +121,12 @@ if(typeof localStorage.projects === 'undefined') {
   test();
   setLocalStorage('projects', projects)
 }
+if(typeof localStorage.notes === 'undefined') {
+  setLocalStorage('notes', notesArr)
+}
 
 // localStorage.clear()
 getLocalStorage('projects');
+getLocalStorage('notes');
 renderProjects();
 renderInbox();
