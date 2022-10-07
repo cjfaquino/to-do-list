@@ -54,9 +54,6 @@ export function createEditInput(el) {
       const name = newName.value;
       const due = newDate.value;
       const desc = newDesc.value;
-      // el.setName(name);
-      // el.setDate(due);
-      // el.setDesc(desc);
       setToDoName(el, name);
       setToDoDate(el, due);
       setToDoDesc(el, desc);
