@@ -1,6 +1,8 @@
 import { changeDateFormat, removeAllChildNodes, listView, projectsView, main } from '../index';
 import { renderProjects, renderInbox, renderToDos } from "./renderItems";
 import { createEditInput } from "./createEditInput";
+import { delTodo } from './List';
+import { toggleToDoCompleted } from './ToDo';
 
 export function createNewToDoDOM(el, projectArray) {
   const li = document.createElement('li');
@@ -74,7 +76,8 @@ export function createNewToDoDOM(el, projectArray) {
 
   function deleteTodo(projectArray) {
     return () => {
-      projectArray.delTodo(el);
+      // projectArray.delTodo(el);
+      delTodo(projectArray, el);
       removeAllChildNodes(listView);
       removeAllChildNodes(projectsView);
       renderProjects();
@@ -86,7 +89,8 @@ export function createNewToDoDOM(el, projectArray) {
 
   function toggleCompleted(el) {
     return () => {
-      el.toggleComp();
+      // el.toggleComp();
+      toggleToDoCompleted(el);
       if (!el.completed) {
         p.classList.remove('strike');
         span.classList.remove('strike');

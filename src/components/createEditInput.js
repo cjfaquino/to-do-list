@@ -1,5 +1,6 @@
-import { main, removeAllChildNodes, listView, currentProject } from '../index';
+import { main, removeAllChildNodes, listView, currentProject, setLocalStorage } from '../index';
 import { renderInbox, renderToDos } from "./renderItems";
+import { setToDoName, setToDoDate, setToDoDesc } from './ToDo';
 
 
 export function createEditInput(el) {
@@ -53,10 +54,13 @@ export function createEditInput(el) {
       const name = newName.value;
       const due = newDate.value;
       const desc = newDesc.value;
-      el.setName(name);
-      el.setDate(due);
-      el.setDesc(desc);
-
+      // el.setName(name);
+      // el.setDate(due);
+      // el.setDesc(desc);
+      setToDoName(el, name);
+      setToDoDate(el, due);
+      setToDoDesc(el, desc);
+      
       removeAllChildNodes(edits);
       removeAllChildNodes(listView);
       if (main.dataset.list === 'allInbox') {
