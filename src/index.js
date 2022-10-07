@@ -4,7 +4,7 @@ import { test } from './components/test';
 import { createNewInput } from './components/createNewInput';
 import { renderInbox, renderToday, renderWeekly, renderNotes, renderProjects, renderToDos } from './components/renderItems';
 
-
+export let notesArr = [];
 export let projects = [];
 export let currentProject;
 
