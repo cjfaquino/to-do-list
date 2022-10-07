@@ -1,5 +1,5 @@
 export class Note {
-  constructor(text = ' ') {
+  constructor(text = '') {
     this.text = text;
   }
 }
