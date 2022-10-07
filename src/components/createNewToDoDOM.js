@@ -1,4 +1,4 @@
-import { changeDateFormat, removeAllChildNodes, listView, projectsView, main } from '../index';
+import { changeDateFormat, removeAllChildNodes, listView, projectsView, main, setLocalStorage } from '../index';
 import { renderProjects, renderInbox, renderToDos } from "./renderItems";
 import { createEditInput } from "./createEditInput";
 import { delTodo } from './List';
@@ -91,6 +91,7 @@ export function createNewToDoDOM(el, projectArray) {
     return () => {
       // el.toggleComp();
       toggleToDoCompleted(el);
+      setLocalStorage();
       if (!el.completed) {
         p.classList.remove('strike');
         span.classList.remove('strike');
