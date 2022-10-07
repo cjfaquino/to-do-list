@@ -365,3 +365,48 @@ input[type="checkbox"]::before {
 input[type="checkbox"]:checked::before {
   transform: scale(1);
 }
+
+.newNote {
+  margin-left: 20px;
+}
+
+main[data-list='NotesSection'] .listView {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.noteItem {
+  margin: 20px;
+  width: 220px;
+  height: 240px;
+  
+}
+
+.noteText {
+  border: none;
+  background-color: rgb(255, 255, 230);
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.noteText:focus {
+  outline: none !important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  transition: box-shadow .3s;
+}
+
+.deleteNote {
+  position: relative;
+  top: -238px;
+  right: -193px;
+  width: fit-content;
+  z-index: 10;
+  color: rgb(179, 179, 179);
+}
+
+.deleteNote:hover {
+  color: red;
+  transition: color .3s;
+}
