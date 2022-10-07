@@ -1,7 +1,7 @@
 import './style.css';
 
 import * as demo from './components/test';
-import { createNewInput } from './components/createNewInput';
+import { createNewInput } from './components/createNewInputDOM';
 import { renderInbox, renderToday, renderWeekly, renderNotes, renderProjects, renderToDos } from './components/renderItems';
 
 export let notesArr = [];

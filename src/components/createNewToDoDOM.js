@@ -1,6 +1,6 @@
 import { changeDateFormat, removeAllChildNodes, listView, projectsView, main, setLocalStorage, projects } from '../index';
 import { renderProjects, renderInbox, renderToDos } from "./renderItems";
-import { createEditInput } from "./createEditInput";
+import { createEditInput } from "./createEditInputDOM";
 import { delTodo } from './List';
 import { toggleToDoCompleted } from './ToDo';
 
