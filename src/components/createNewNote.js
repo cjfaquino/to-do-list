@@ -6,12 +6,14 @@ export const addNoteBtn = document.createElement('button');
 addNoteBtn.textContent = 'Add';
 addNoteBtn.classList.add('newNote')
 
-addNoteBtn.addEventListener('click', createNewNote)
+addNoteBtn.addEventListener('click', createNewNote())
 
 export function createNewNote(text) {
-  const note = new Note(text)
-  createNewNoteDOM(note);
-  notesArr.push(note)
-  setLocalStorage('notes', notesArr)
-  return note;
+  return () => {
+    const note = new Note(text)
+    createNewNoteDOM(note);
+    notesArr.push(note)
+    setLocalStorage('notes', notesArr)
+    return note;
+  }
 }
