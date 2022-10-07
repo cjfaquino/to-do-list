@@ -11,6 +11,7 @@ export function createNewNoteDOM(item) {
   textArea.classList.add('noteText');
   del.classList.add('deleteNote');
 
+  textArea.placeholder = 'add brief note...'
   del.innerHTML = '<i class="fa-solid fa-delete-left"></i>';
   textArea.value = item.text;
 
