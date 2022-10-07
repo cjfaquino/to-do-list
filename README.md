@@ -1,5 +1,6 @@
 # to-do-list
 
+- Use GitHub actions for auto-deployment
 - Has localStorage set up
 - Uses npm for devdependencies
 - Uses webpack for browser compatibility
