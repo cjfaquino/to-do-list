@@ -50,7 +50,7 @@ export function renderToDos(projectArray) {
     listView.appendChild(li);
     updateCurrentProject(projectArray);
   });
-  setLocalStorage();
+  setLocalStorage('projects', projects);
 }
 
 export function renderProjects() {
@@ -59,5 +59,5 @@ export function renderProjects() {
     const li = createNewProjectDOM(el, index);
     projectsView.appendChild(li);
   });
-  setLocalStorage()
+  setLocalStorage('projects', projects)
 }

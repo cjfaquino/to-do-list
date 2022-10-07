@@ -100,21 +100,21 @@ export function removeAllChildNodes(parent) {
   }
 }
 
-export function setLocalStorage(){
-  localStorage.setItem('projects', JSON.stringify(projects))
+export function setLocalStorage(storedName, dataArr){
+  localStorage.setItem(storedName, JSON.stringify(dataArr))
 }
 
-function getLocalStorage(){
-  updateProjects(JSON.parse(localStorage.getItem('projects')))
+function getLocalStorage(storedName){
+  updateProjects(JSON.parse(localStorage.getItem(storedName)))
 }
 
 
 if(typeof localStorage.projects === 'undefined') {
   test();
-  localStorage.setItem('projects', JSON.stringify(projects));
+  setLocalStorage('projects', projects)
 }
 
 // localStorage.clear()
-getLocalStorage();
+getLocalStorage('projects');
 renderProjects();
 renderInbox();
