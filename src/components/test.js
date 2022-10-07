@@ -45,6 +45,10 @@ export const test = () => {
   const todo7 = new ToDo('Add notes section', '2022-10-01');
   project1.list.push(todo7);
 
+  const todo12 = new ToDo('Add localStorage abilities', '2022-10-06')
+  project1.list.push(todo12);
+  toggleToDoCompleted(todo12)
+
   const todo4 = new ToDo('Clean room', new Date().toISOString().split('T')[0]);
   project2.list.push(todo4);
 
