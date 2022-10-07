@@ -100,7 +100,21 @@ export function removeAllChildNodes(parent) {
   }
 }
 
+export function setLocalStorage(){
+  localStorage.setItem('projects', JSON.stringify(projects))
+}
 
-test();
+function getLocalStorage(){
+  updateProjects(JSON.parse(localStorage.getItem('projects')))
+}
+
+
+if(typeof localStorage.projects === 'undefined') {
+  test();
+  localStorage.setItem('projects', JSON.stringify(projects));
+}
+
+// localStorage.clear()
+getLocalStorage();
 renderProjects();
 renderInbox();

@@ -1,6 +1,6 @@
 import { createNewProjectDOM } from './createNewProjectDOM';
 import { createNewToDoDOM } from './createNewToDoDOM';
-import { listTitle, dateLabel, listBtn, sortDateBtn, main, removeAllChildNodes, listView, projects, updateCurrentProject, projectsView } from '../index';
+import { listTitle, dateLabel, listBtn, sortDateBtn, main, removeAllChildNodes, listView, projects, updateCurrentProject, projectsView, setLocalStorage } from '../index';
 
 
 export function renderInbox() {
@@ -42,6 +42,7 @@ export function renderToDos(projectArray) {
     listView.appendChild(li);
     updateCurrentProject(projectArray);
   });
+  setLocalStorage();
 }
 
 export function renderProjects() {
@@ -49,4 +50,5 @@ export function renderProjects() {
     const li = createNewProjectDOM(el, index);
     projectsView.appendChild(li);
   });
+  setLocalStorage()
 }
