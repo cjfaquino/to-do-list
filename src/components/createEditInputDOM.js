@@ -1,4 +1,5 @@
-import { main, removeAllChildNodes, listView, currentProject, setLocalStorage } from '../index';
+import { removeAllChildNodes, currentProject, setLocalStorage } from '../index';
+import { main, listView } from "./DOMelements";
 import { renderInbox, renderToDos } from "./renderItems";
 import { setToDoName, setToDoDate, setToDoDesc } from './ToDo';
 

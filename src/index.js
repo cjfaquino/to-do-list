@@ -1,8 +1,8 @@
 import './style.css';
 
 import * as demo from './components/test';
-import { createNewInput } from './components/createNewInputDOM';
-import { renderInbox, renderToday, renderWeekly, renderNotes, renderProjects, renderToDos } from './components/renderItems';
+import { renderInbox, renderProjects, renderToDos } from './components/renderItems';
+import { sidebar, sortDateBtn, listView } from './components/DOMelements';
 
 export let notesArr = [];
 export let projects = [];
@@ -19,37 +19,6 @@ function updateNotes(item) {
   return notesArr = item;
 }
 
-export const main = document.querySelector('main')
-const sidebar = main.querySelector('.sidebar')
-const inbox = sidebar.querySelector('#inbox')
-const today = sidebar.querySelector('#today')
-const weekly = sidebar.querySelector('#week')
-const notes = sidebar.querySelector('#notes')
-const selectable = sidebar.querySelectorAll('.selectable')
-
-export const projectsView = main.querySelector('.projectsView')
-const projectsBtn = main.querySelector('.projectsBtn')
-
-const list = main.querySelector('.list')
-export const listView = list.querySelector('.listView')
-export const listBtn = list.querySelector('.listBtn')
-export const dateLabel = list.querySelector('.dueDate')
-export const sortDateBtn = list.querySelector('.sortDate');
-
-export let listTitle = list.querySelector('.listTitle');
-
-projectsBtn.addEventListener('click', createNewInput(projectsView, 'project'))
-listBtn.addEventListener('click', createNewInput(listView, 'todo'))
-inbox.addEventListener('click', renderInbox)
-today.addEventListener('click', renderToday)
-weekly.addEventListener('click', renderWeekly)
-notes.addEventListener('click', renderNotes)
-sortDateBtn.addEventListener('click', sortDate)
-selectable.forEach(el=>{
-  el.addEventListener('click', colorSelected)
-})
-
-
 export function changeDateFormat(dateISOstring){
   if(!dateISOstring) return '';
   const split = dateISOstring.split('-');
@@ -65,7 +34,7 @@ export function colorSelected(e){
   e.currentTarget.classList.add('selected')
 }
 
-function sortDate() {
+export function sortDate() {
   if (!sortDateBtn.dataset.sort) {
     sortDateBtn.dataset.sort = 'asc'
   }

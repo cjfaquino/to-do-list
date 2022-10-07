@@ -1,4 +1,5 @@
-import { removeAllChildNodes, projectsView, currentProject, listView } from '../index';
+import { removeAllChildNodes, currentProject } from '../index';
+import { projectsView, listView } from "./DOMelements";
 import { renderProjects, renderToDos } from "./renderItems";
 import { createNewItem } from './createNewItem';
 

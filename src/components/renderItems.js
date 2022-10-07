@@ -1,7 +1,8 @@
 import { createNewProjectDOM } from './createNewProjectDOM';
 import { createNewToDoDOM } from './createNewToDoDOM';
 import { addNoteBtn } from './createNewNote';
-import { listTitle, dateLabel, listBtn, sortDateBtn, main, removeAllChildNodes, listView, projects, updateCurrentProject, projectsView, setLocalStorage, notesArr } from '../index';
+import { removeAllChildNodes, projects, updateCurrentProject, setLocalStorage, notesArr } from '../index';
+import { listTitle, dateLabel, listBtn, sortDateBtn, main, listView, projectsView } from "./DOMelements";
 import { createNewNoteDOM } from './createNewNoteDOM';
 
 

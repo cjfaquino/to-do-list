@@ -1,4 +1,5 @@
-import { listView, notesArr, setLocalStorage } from "..";
+import { notesArr, setLocalStorage } from "..";
+import { listView } from "./DOMelements";
 import { renderNotes } from "./renderItems";
 import { setNoteText } from "./Note";
 

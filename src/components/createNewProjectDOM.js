@@ -1,4 +1,5 @@
-import { colorSelected, projects, removeAllChildNodes, projectsView, main, listTitle, listBtn, dateLabel, sortDateBtn, listView, updateCurrentProject, updateProjects} from '../index';
+import { colorSelected, projects, removeAllChildNodes, updateCurrentProject, updateProjects} from '../index';
+import { projectsView, main, listTitle, listBtn, dateLabel, sortDateBtn, listView } from "./DOMelements";
 import { renderProjects, renderInbox, renderToDos } from "./renderItems";
 
 export function createNewProjectDOM(item, index) {
