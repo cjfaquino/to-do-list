@@ -1,7 +1,8 @@
 import { createNewProjectDOM } from './createNewProjectDOM';
 import { createNewToDoDOM } from './createNewToDoDOM';
-import { addNoteBtn } from './createNewNoteDOM';
+import { addNoteBtn } from './createNewNote';
 import { listTitle, dateLabel, listBtn, sortDateBtn, main, removeAllChildNodes, listView, projects, updateCurrentProject, projectsView, setLocalStorage, notesArr } from '../index';
+import { createNewNoteDOM } from './createNewNoteDOM';
 
 
 export function renderInbox() {
@@ -39,7 +40,7 @@ export function renderNotes() {
   listTitle.textContent = 'Notes';
   listTitle.after(addNoteBtn)
   notesArr.forEach(el => {
-    listView.append(el)
+    createNewNoteDOM(el)
   })
 }
 
