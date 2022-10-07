@@ -1,7 +1,6 @@
-import { List } from './List';
-import { ToDo } from './ToDo';
-import { removeAllChildNodes, projectsView, currentProject, listView, projects } from '../index';
+import { removeAllChildNodes, projectsView, currentProject, listView } from '../index';
 import { renderProjects, renderToDos } from "./renderItems";
+import { createNewItem } from './createNewItem';
 
 export function createNewInput(view, type) {
   return () => {
@@ -57,34 +56,4 @@ export function createNewInput(view, type) {
     view.append(div);
     newName.select();
   };
-}
-function createNewItem(newName, view, type, newDate, newDesc) {
-  return (e) => {
-    if (e.key === 'Enter' || e.target.classList == 'confirmNew') {
-      const name = newName.value;
-      removeAllChildNodes(view);
-
-      if (type === 'project') {
-        createNewProject(name);
-        renderProjects();
-      }
-
-      if (type === 'todo') {
-        createNewTodo(name, newDate, newDesc);
-        renderToDos(currentProject);
-        removeAllChildNodes(projectsView);
-        renderProjects();
-      }
-    }
-  };
-}
-function createNewTodo(name, newDate, newDesc) {
-  const todo = new ToDo(name, newDate.value, newDesc.value);
-  currentProject.list.push(todo);
-}
-
-export function createNewProject(name) {
-  const list = new List(name);
-  projects.push(list);
-  return list;
 }

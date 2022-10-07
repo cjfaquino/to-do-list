@@ -1,5 +1,5 @@
 import { ToDo, toggleToDoCompleted } from './ToDo';
-import { createNewProject } from "./createNewInput";
+import { createNewProject } from "./createNewItem";
 import { Note } from './Note';
 import { notesArr } from '..';
 
