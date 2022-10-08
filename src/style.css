@@ -155,8 +155,8 @@ input[type='checkbox'] {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: grey;
-  background-color: rgb(255, 255, 255);
+  color: var(--main-color);
+  background-color: rgb(245, 245, 245);
   border-radius: 50%;
 }
 
