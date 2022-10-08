@@ -1,0 +1,137 @@
+.list {
+  padding: 0 20px;
+  grid-area: list;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top-right-radius: var(--main-border-radius);
+}
+
+.topRow,
+.listView {
+  width: max(500px, 100%);
+  background-color: white;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+  padding-top: 20px;
+  border-top-right-radius: var(--main-border-radius);
+}
+
+.listTitle {
+  margin-left: 40px;
+}
+
+.listBtn {
+  margin-left: 20px;
+}
+
+.dueDate {
+  margin-left: auto;
+  margin-right: 95px;
+}
+
+
+.todo {
+  margin: 5px 0;
+  display: grid;
+  grid-template-columns: 15px 1fr 110px 25px 30px;
+  align-items: center;
+  font-size: 1rem;
+  padding: 0 15px;
+  border-radius: 20px;
+}
+
+.todo:hover {
+  background-color: var(--sub-color);
+  transition: all 0.5s ease-out;
+}
+
+/* .todo:nth-child(even){
+  background-color: rgb(250, 250, 250);
+} */
+
+.todoName {
+  padding: 10px 10px;
+}
+
+.todoDesc {
+  grid-column: 2 / span 4;
+  font-size: .8rem;
+  padding: 10px 20px 20px 20px;
+}
+
+.todoDate {
+  font-size: .8rem;
+  color: var(--main-color);
+}
+
+.sortDate {
+  color: var(--main-color);
+}
+
+.delProject,
+.delTodo,
+.editTodo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0, .2);
+}
+
+.delProject:hover,
+.delTodo:hover {
+  color: red;
+  transition: color 0.5s ease;
+}
+
+.editTodo:hover {
+  color: rgba(0, 0, 0, 0.5);
+  transition: color 0.5s ease;
+}
+
+/* Remove default checkbox styles */
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: grey;
+  width: .9rem;
+  height: .9rem;
+  border: 0.1rem solid grey;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65rem;
+  height: 0.65rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  /* Checked color */
+  box-shadow: inset 1em 1em rgb(228, 228, 228);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
