@@ -94,11 +94,13 @@ header {
   opacity: .2;
 }
 
+i,
 button,
-.selectable:hover,
-.todoName:hover,
-.editTodo:hover,
-.delTodo:hover,
+.selectable,
+.todoName,
+.editTodo,
+.delTodo,
+.sortDate,
 input[type='checkbox'] {
   cursor: pointer;
 }
@@ -144,7 +146,7 @@ input[type='checkbox'] {
 
 .projectName {
   align-self: center;
-  padding: 0 5px;
+  padding: 8px 5px !important;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -230,7 +232,7 @@ input[type='checkbox'] {
   grid-template-columns: 15px 1fr 110px 25px 30px;
   align-items: center;
   font-size: 1rem;
-  padding: 10px 15px;
+  padding: 0 15px;
   border-radius: 20px;
 }
 
@@ -244,13 +246,13 @@ input[type='checkbox'] {
 } */
 
 .todoName {
-  padding-left: 10px;
+  padding: 10px 10px;
 }
 
 .todoDesc {
   grid-column: 2 / span 4;
   font-size: .8rem;
-  padding: 5px;
+  padding: 10px 20px 20px 20px;
 }
 
 .todoDate {
