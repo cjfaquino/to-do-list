@@ -70,4 +70,9 @@ export const notes = () => {
 
   const note2 = new Note('one\ntwo\nthree\nfour')
   notesArr.push(note2)
+
+  for (let i = 0; i < 5; i++) {
+    const newNotes = new Note();
+    notesArr.push(newNotes)
+  }
 }
