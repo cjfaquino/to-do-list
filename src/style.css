@@ -225,6 +225,7 @@ input[type='checkbox'] {
 
 
 .todo {
+  margin: 5px 0;
   display: grid;
   grid-template-columns: 15px 1fr 110px 25px 30px;
   align-items: center;
