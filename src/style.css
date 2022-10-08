@@ -420,16 +420,48 @@ main[data-list='NotesSection'] .listView {
   margin: 20px;
   width: 220px;
   height: 240px;
-  
 }
 
-.noteText {
-  border: none;
-  background-color: rgb(255, 255, 230);
+.noteItem:nth-child(even) {
+  transform:rotate(4deg);
+  position:relative;
+  top:5px;
+}
+.noteItem:nth-child(3n) {
+  transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+}
+.noteItem:nth-child(5n) {
+  transform:rotate(5deg);
+  position:relative;
+  top:-10px;
+}
+
+.noteText {border: none;
   padding: 20px;
   height: 100%;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  border: 1px solid #E8E8E8;
+  background: #ffff88;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(81%, #ffff88), color-stop(82%, #ffff88), color-stop(82%, #ffff88), color-stop(100%, #ffffc6));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);
+  /* IE10+ */
+  background: linear-gradient(135deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff88', endColorstr='#ffffc6', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+  border-bottom-right-radius: 60px 10px;
 }
 
 .noteText:focus {
