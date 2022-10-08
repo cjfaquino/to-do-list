@@ -51,6 +51,7 @@ export function createNewToDoDOM(el, projectArray) {
 
   function toggleDesc() {
     desc.classList.toggle('collapse');
+    li.classList.toggle('selected');
   }
 
   function editTodo(el) {
