@@ -1,7 +1,6 @@
 @import "./components/sidebar.css";
 @import "./components/todoList.css";
 @import "./components/editTodo.css";
-@import "./components/notes.css";
 
 :root {
   --sidebar-padding: 0 35px;
@@ -38,7 +37,8 @@ html {
   background-color: var(--main-color);
 }
 
-html, body{
+html,
+body {
   height: 100%;
 }
 
@@ -46,9 +46,9 @@ main {
   display: grid;
   grid-template-columns: 250px 1fr;
   grid-template-rows: 50px 1fr;
-  grid-template-areas: 
-  "header header"
-  "sidebar list";
+  grid-template-areas:
+    "header header"
+    "sidebar list";
   height: 100%;
 }
 
@@ -80,7 +80,7 @@ header {
   transition: background-color .2s ease-in;
 }
 
-.collapse{
+.collapse {
   display: none;
   overflow: hidden;
 }
@@ -109,4 +109,3 @@ button,
 input[type='checkbox'] {
   cursor: pointer;
 }
-

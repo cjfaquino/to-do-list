@@ -1,7 +1,9 @@
-import { notesArr, setLocalStorage } from "..";
-import { listView } from "./DOMelements";
-import { renderNotes } from "./renderItems";
-import { setNoteText } from "./Note";
+import { notesArr, setLocalStorage } from '../..';
+import { listView } from '../DOMelements';
+import { renderNotes } from '../renderItems';
+import { setNoteText } from './Note';
+
+import './notes.css';
 
 export function createNewNoteDOM(item) {
   const div = document.createElement('div');
@@ -12,7 +14,7 @@ export function createNewNoteDOM(item) {
   textArea.classList.add('noteText');
   del.classList.add('deleteNote');
 
-  textArea.placeholder = 'add brief note...'
+  textArea.placeholder = 'add brief note...';
   del.innerHTML = '<i class="fa-solid fa-delete-left"></i>';
   textArea.value = item.text;
 
@@ -20,16 +22,16 @@ export function createNewNoteDOM(item) {
   listView.append(div);
 
   del.addEventListener('click', deleteNote);
-  textArea.addEventListener('change', updateNote)
+  textArea.addEventListener('change', updateNote);
 
   function updateNote() {
-    setNoteText(item, this.value)
-    setLocalStorage('notes', notesArr)
+    setNoteText(item, this.value);
+    setLocalStorage('notes', notesArr);
   }
 
   function deleteNote() {
     notesArr.splice(notesArr.indexOf(item), 1);
-    setLocalStorage('notes', notesArr)
+    setLocalStorage('notes', notesArr);
     renderNotes();
   }
 }

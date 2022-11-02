@@ -1,10 +1,23 @@
 import { createNewProjectDOM } from './createNewProjectDOM';
 import { createNewToDoDOM } from './createNewToDoDOM';
-import { addNoteBtn } from './createNewNote';
-import { removeAllChildNodes, projects, updateCurrentProject, setLocalStorage, notesArr } from '../index';
-import { listTitle, dateLabel, listBtn, sortDateBtn, main, listView, projectsView } from "./DOMelements";
-import { createNewNoteDOM } from './createNewNoteDOM';
-
+import { addNoteBtn } from './notes/createNewNote';
+import {
+  removeAllChildNodes,
+  projects,
+  updateCurrentProject,
+  setLocalStorage,
+  notesArr,
+} from '../index';
+import {
+  listTitle,
+  dateLabel,
+  listBtn,
+  sortDateBtn,
+  main,
+  listView,
+  projectsView,
+} from './DOMelements';
+import { createNewNoteDOM } from './notes/createNewNoteDOM';
 
 export function renderInbox() {
   listTitle.after(dateLabel);
@@ -13,14 +26,14 @@ export function renderInbox() {
   main.dataset.list = 'allInbox';
   listTitle.textContent = 'Inbox';
   removeAllChildNodes(listView);
-  projects.forEach(el => {
+  projects.forEach((el) => {
     renderToDos(el);
   });
 }
 export function renderToday() {
   listTitle.after(dateLabel);
   listBtn.remove();
-  addNoteBtn.remove()
+  addNoteBtn.remove();
   removeAllChildNodes(listView);
   main.dataset.list = 'TodaySection';
   listTitle.textContent = 'Today';
@@ -28,7 +41,7 @@ export function renderToday() {
 export function renderWeekly() {
   listTitle.after(dateLabel);
   listBtn.remove();
-  addNoteBtn.remove()
+  addNoteBtn.remove();
   removeAllChildNodes(listView);
   main.dataset.list = 'WeeklySection';
   listTitle.textContent = 'This Week';
@@ -39,15 +52,15 @@ export function renderNotes() {
   listBtn.remove();
   main.dataset.list = 'NotesSection';
   listTitle.textContent = 'Notes';
-  listTitle.after(addNoteBtn)
-  notesArr.forEach(el => {
-    createNewNoteDOM(el)
-  })
+  listTitle.after(addNoteBtn);
+  notesArr.forEach((el) => {
+    createNewNoteDOM(el);
+  });
 }
 
 export function renderToDos(projectArray) {
-  addNoteBtn.remove()
-  projectArray.list.forEach(el => {
+  addNoteBtn.remove();
+  projectArray.list.forEach((el) => {
     const li = createNewToDoDOM(el, projectArray);
     listView.appendChild(li);
     updateCurrentProject(projectArray);
@@ -56,10 +69,10 @@ export function renderToDos(projectArray) {
 }
 
 export function renderProjects() {
-  addNoteBtn.remove()
+  addNoteBtn.remove();
   projects.forEach((el, index) => {
     const li = createNewProjectDOM(el, index);
     projectsView.appendChild(li);
   });
-  setLocalStorage('projects', projects)
+  setLocalStorage('projects', projects);
 }
