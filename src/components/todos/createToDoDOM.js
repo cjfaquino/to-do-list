@@ -9,7 +9,7 @@ import { toggleToDoCompleted } from './ToDo';
 
 import './todoList.css';
 
-export function createNewToDoDOM(el, projectArray) {
+export function createToDoDOM(el, projectArray) {
   const li = document.createElement('li');
   const p = document.createElement('p');
   const span = document.createElement('span');
@@ -46,26 +46,19 @@ export function createNewToDoDOM(el, projectArray) {
     edit.classList.remove('hide');
     del.classList.remove('hide');
   }
-  edit.addEventListener('click', editTodo(el));
-  del.addEventListener('click', deleteTodo(projectArray));
-  li.addEventListener('mouseenter', unhideOptions(del, edit));
-  li.addEventListener('mouseleave', hideOptions(el, del, edit));
-  check.addEventListener('click', toggleCompleted(el));
-  p.addEventListener('click', toggleDesc);
-  return li;
 
   function toggleDesc() {
     desc.classList.toggle('collapse');
     li.classList.toggle('selected');
   }
 
-  function editTodo(el) {
+  function editTodo() {
     return () => {
       createEditInput(el);
     };
   }
 
-  function hideOptions(el, del, edit) {
+  function hideOptions() {
     return () => {
       if (!el.completed) {
         del.classList.add('hide');
@@ -74,14 +67,14 @@ export function createNewToDoDOM(el, projectArray) {
     };
   }
 
-  function unhideOptions(del, edit) {
+  function unhideOptions() {
     return () => {
       del.classList.remove('hide');
       edit.classList.remove('hide');
     };
   }
 
-  function deleteTodo(projectArray) {
+  function deleteTodo() {
     return () => {
       delTodo(projectArray, el);
       removeAllChildNodes(listView);
@@ -95,7 +88,7 @@ export function createNewToDoDOM(el, projectArray) {
     };
   }
 
-  function toggleCompleted(el) {
+  function toggleCompleted() {
     return () => {
       toggleToDoCompleted(el);
       setLocalStorage('projects', projects);
@@ -108,4 +101,14 @@ export function createNewToDoDOM(el, projectArray) {
       }
     };
   }
+
+  edit.addEventListener('click', editTodo());
+  del.addEventListener('click', deleteTodo());
+  li.addEventListener('mouseenter', unhideOptions());
+  li.addEventListener('mouseleave', hideOptions());
+  check.addEventListener('click', toggleCompleted());
+  p.addEventListener('click', toggleDesc);
+  return li;
 }
+
+export default createToDoDOM;

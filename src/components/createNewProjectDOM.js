@@ -1,5 +1,7 @@
 import { projects, updateCurrentProject, updateProjects } from '../index';
+import { renderProjects, renderInbox, renderToDos } from './renderItems';
 import removeAllChildNodes from './utils/removeAllChildNodes';
+import colorSelected from './utils/colorSelected';
 import {
   projectsView,
   main,
@@ -9,10 +11,28 @@ import {
   sortDateBtn,
   listView,
 } from './DOMelements';
-import { renderProjects, renderInbox, renderToDos } from './renderItems';
-import colorSelected from './utils/colorSelected';
 
 export function createNewProjectDOM(item, index) {
+  function deleteProject() {
+    return () => {
+      const filtered = projects.filter((key) => key !== item);
+      updateProjects(filtered);
+      removeAllChildNodes(projectsView);
+      renderProjects();
+      renderInbox();
+    };
+  }
+
+  function renderSelected() {
+    main.dataset.list = item.name;
+    updateCurrentProject(item);
+    listTitle.textContent = item.name;
+    listTitle.after(listBtn);
+    dateLabel.append(sortDateBtn);
+    removeAllChildNodes(listView);
+    renderToDos(projects[index]);
+  }
+
   const li = document.createElement('li');
   const span = document.createElement('span');
   const p = document.createElement('p');
@@ -42,24 +62,6 @@ export function createNewProjectDOM(item, index) {
     del.classList.add('hide');
   });
   return li;
-
-  function deleteProject(item) {
-    return () => {
-      const filtered = projects.filter((key) => key != item);
-      updateProjects(filtered);
-      removeAllChildNodes(projectsView);
-      renderProjects();
-      renderInbox();
-    };
-  }
-
-  function renderSelected() {
-    main.dataset.list = item.name;
-    updateCurrentProject(item);
-    listTitle.textContent = item.name;
-    listTitle.after(listBtn);
-    dateLabel.append(sortDateBtn);
-    removeAllChildNodes(listView);
-    renderToDos(projects[index]);
-  }
 }
+
+export default createNewProjectDOM;
