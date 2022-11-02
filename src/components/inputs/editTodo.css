@@ -48,8 +48,13 @@
   width: 100%;
 }
 
+#editDate {
+  margin-left: 5px;
+}
+
 #editAccept {
   margin-left: auto;
+  margin-right: 10px;
 }
 
 .newInputs {
