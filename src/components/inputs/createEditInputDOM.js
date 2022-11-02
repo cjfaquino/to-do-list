@@ -1,8 +1,9 @@
-import { removeAllChildNodes, currentProject, setLocalStorage } from '../index';
-import { main, listView } from "./DOMelements";
-import { renderInbox, renderToDos } from "./renderItems";
-import { setToDoName, setToDoDate, setToDoDesc } from './ToDo';
+import { removeAllChildNodes, currentProject } from '../../index';
+import { main, listView } from '../DOMelements';
+import { renderInbox, renderToDos } from '../renderItems';
+import { setToDoName, setToDoDate, setToDoDesc } from '../ToDo';
 
+import './editTodo.css';
 
 export function createEditInput(el) {
   const edits = document.createElement('div');
@@ -39,7 +40,16 @@ export function createEditInput(el) {
   newDate.value = el.dueDate;
   newDesc.value = el.desc;
 
-  div.append(labelName, newName, labelDesc, newDesc, labelDate, newDate, accept, cancel);
+  div.append(
+    labelName,
+    newName,
+    labelDesc,
+    newDesc,
+    labelDate,
+    newDate,
+    accept,
+    cancel
+  );
   edits.append(div);
   main.append(edits);
 
@@ -58,12 +68,14 @@ export function createEditInput(el) {
       setToDoName(el, name);
       setToDoDate(el, due);
       setToDoDesc(el, desc);
-      
+
       removeAllChildNodes(edits);
       removeAllChildNodes(listView);
       if (main.dataset.list === 'allInbox') {
         renderInbox();
-      } else { renderToDos(currentProject); };
+      } else {
+        renderToDos(currentProject);
+      }
       edits.remove();
     };
   }

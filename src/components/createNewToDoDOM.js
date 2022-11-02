@@ -1,7 +1,12 @@
-import { changeDateFormat, removeAllChildNodes, setLocalStorage, projects } from '../index';
-import { listView, projectsView, main } from "./DOMelements";
-import { renderProjects, renderInbox, renderToDos } from "./renderItems";
-import { createEditInput } from "./createEditInputDOM";
+import {
+  changeDateFormat,
+  removeAllChildNodes,
+  setLocalStorage,
+  projects,
+} from '../index';
+import { listView, projectsView, main } from './DOMelements';
+import { renderProjects, renderInbox, renderToDos } from './renderItems';
+import { createEditInput } from './inputs/createEditInputDOM';
 import { delTodo } from './List';
 import { toggleToDoCompleted } from './ToDo';
 
@@ -84,7 +89,9 @@ export function createNewToDoDOM(el, projectArray) {
       renderProjects();
       if (main.dataset.list === 'allInbox') {
         renderInbox();
-      } else { renderToDos(projectArray); }
+      } else {
+        renderToDos(projectArray);
+      }
     };
   }
 

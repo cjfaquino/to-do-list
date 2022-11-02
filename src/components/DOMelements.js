@@ -1,7 +1,11 @@
-import { createNewInput } from './createNewInputDOM';
-import { renderInbox, renderToday, renderWeekly, renderNotes } from './renderItems';
+import { createNewInput } from './inputs/createNewInputDOM';
+import {
+  renderInbox,
+  renderToday,
+  renderWeekly,
+  renderNotes,
+} from './renderItems';
 import { sortDate, colorSelected } from '../index';
-
 
 export const main = document.querySelector('main');
 export const sidebar = main.querySelector('.sidebar');
@@ -19,7 +23,7 @@ export const listBtn = list.querySelector('.listBtn');
 export const dateLabel = list.querySelector('.dueDate');
 export const sortDateBtn = list.querySelector('.sortDate');
 
-export let listTitle = list.querySelector('.listTitle');
+export const listTitle = list.querySelector('.listTitle');
 projectsBtn.addEventListener('click', createNewInput(projectsView, 'project'));
 listBtn.addEventListener('click', createNewInput(listView, 'todo'));
 inbox.addEventListener('click', renderInbox);
@@ -27,6 +31,6 @@ today.addEventListener('click', renderToday);
 weekly.addEventListener('click', renderWeekly);
 notes.addEventListener('click', renderNotes);
 sortDateBtn.addEventListener('click', sortDate);
-selectable.forEach(el => {
+selectable.forEach((el) => {
   el.addEventListener('click', colorSelected);
 });
