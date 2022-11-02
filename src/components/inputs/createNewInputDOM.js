@@ -1,4 +1,4 @@
-import { currentProject } from '../../index';
+import { getCurrentProject } from '../../updateProjects';
 import { projectsView, listView } from '../DOMelements';
 import { renderProjects, renderToDos } from '../renderItems';
 import { createNewItem } from '../createNewItem';
@@ -42,6 +42,7 @@ function createNewInput(view, type) {
     }
 
     if (type === 'todo') {
+      const currentProject = getCurrentProject();
       bottomRow.append(newDate, confirm, cancel);
       div.append(newDesc, bottomRow);
       renderToDos(currentProject);

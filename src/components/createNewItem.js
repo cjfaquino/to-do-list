@@ -1,11 +1,12 @@
 import { List } from './List';
 import { ToDo } from './todos/ToDo';
-import { currentProject, projects } from '../index';
+import { getCurrentProject, getProjects } from '../updateProjects';
 import { projectsView } from './DOMelements';
 import { renderProjects, renderToDos } from './renderItems';
 import removeAllChildNodes from './utils/removeAllChildNodes';
 
 function createNewTodo(name, newDate, desc) {
+  const currentProject = getCurrentProject();
   let newDesc = desc;
   if (!desc) {
     newDesc = undefined;
@@ -15,6 +16,7 @@ function createNewTodo(name, newDate, desc) {
 }
 
 export function createNewProject(name) {
+  const projects = getProjects();
   const list = new List(name);
   projects.push(list);
   return list;
@@ -32,6 +34,7 @@ export function createNewItem(view, type) {
       }
 
       if (type === 'todo') {
+        const currentProject = getCurrentProject();
         const newDesc = document.querySelector('.newDesc').value;
         const newDate = document.querySelector('.newDate').value;
 

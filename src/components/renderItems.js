@@ -5,12 +5,8 @@ import createNewNoteDOM from './notes/createNewNoteDOM';
 import removeAllChildNodes from './utils/removeAllChildNodes';
 // eslint-disable-next-line import/no-named-as-default
 import createToDoDOM from './todos/createToDoDOM';
-import {
-  projects,
-  updateCurrentProject,
-  setLocalStorage,
-  notesArr,
-} from '../index';
+import { setLocalStorage } from './utils/localStorage';
+import { updateCurrentProject, getProjects, getNotes } from '../updateProjects';
 import {
   listTitle,
   dateLabel,
@@ -21,6 +17,7 @@ import {
 } from './DOMelements';
 
 export function renderToDos(projectArray) {
+  const projects = getProjects();
   addNoteBtn.remove();
   resetSortBtn();
   projectArray.list.forEach((el) => {
@@ -32,6 +29,7 @@ export function renderToDos(projectArray) {
 }
 
 export function renderProjects() {
+  const projects = getProjects();
   addNoteBtn.remove();
   resetSortBtn();
   projects.forEach((el, index) => {
@@ -42,6 +40,7 @@ export function renderProjects() {
 }
 
 export function renderInbox() {
+  const projects = getProjects();
   listTitle.after(dateLabel);
   listBtn.remove();
   resetSortBtn();
@@ -70,6 +69,7 @@ export function renderWeekly() {
   listTitle.textContent = 'This Week';
 }
 export function renderNotes() {
+  const notesArr = getNotes();
   removeAllChildNodes(listView);
   dateLabel.remove();
   listBtn.remove();

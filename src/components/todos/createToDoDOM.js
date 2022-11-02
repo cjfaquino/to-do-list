@@ -1,4 +1,5 @@
-import { setLocalStorage, projects } from '../../index';
+import { setLocalStorage } from '../utils/localStorage';
+import { getProjects } from '../../updateProjects';
 import { changeDateFormat } from '../utils/dateFunc';
 import { listView, projectsView, main } from '../DOMelements';
 import { renderProjects, renderInbox, renderToDos } from '../renderItems';
@@ -90,6 +91,7 @@ export function createToDoDOM(el, projectArray) {
 
   function toggleCompleted() {
     return () => {
+      const projects = getProjects();
       toggleToDoCompleted(el);
       setLocalStorage('projects', projects);
       if (!el.completed) {

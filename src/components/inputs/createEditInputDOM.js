@@ -1,4 +1,4 @@
-import { currentProject } from '../../index';
+import { getCurrentProject } from '../../updateProjects';
 import { main, listView } from '../DOMelements';
 import { renderInbox, renderToDos } from '../renderItems';
 import { setToDoName, setToDoDate, setToDoDesc } from '../todos/ToDo';
@@ -60,6 +60,7 @@ function createEditInput(el) {
 
   function updateTodo() {
     return () => {
+      const currentProject = getCurrentProject()
       const name = newName.value;
       const due = newDate.value;
       const desc = newDesc.value;

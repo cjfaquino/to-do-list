@@ -1,7 +1,7 @@
 import { ToDo, toggleToDoCompleted } from './todos/ToDo';
 import { createNewProject } from './createNewItem';
 import { Note } from './notes/Note';
-import { notesArr } from '..';
+import { getNotes } from '../updateProjects';
 
 export const todos = () => {
   const project1 = createNewProject('Project');
@@ -78,6 +78,7 @@ export const todos = () => {
 };
 
 export const notes = () => {
+  const notesArr = getNotes();
   const note0 = new Note('oranges\nbananas\napples\ngrapes');
   notesArr.push(note0);
 

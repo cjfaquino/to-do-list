@@ -1,11 +1,13 @@
-import { notesArr, setLocalStorage } from '../..';
+import { setLocalStorage } from '../utils/localStorage';
 import { listView } from '../DOMelements';
 import { renderNotes } from '../renderItems';
 import { setNoteText } from './Note';
+import { getNotes } from '../../updateProjects';
 
 import './notes.css';
 
 function createNewNoteDOM(item) {
+  const notesArr = getNotes();
   const div = document.createElement('div');
   const textArea = document.createElement('textarea');
   const del = document.createElement('div');
