@@ -1,18 +1,20 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": "airbnb-base",
-    "overrides": [
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["airbnb-base", "prettier"],
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-param-reassign": [
+      "error",
+      { "props": true, "ignorePropertyModificationsFor": ["todo", "note"] }
     ],
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "rules": {
-        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-        "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["todo", "note"] }],
-        "import/no-cycle": "off"
-    }
+    "import/no-cycle": "off"
+  }
 }
