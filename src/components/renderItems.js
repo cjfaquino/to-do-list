@@ -2,7 +2,6 @@ import { createNewProjectDOM } from './createNewProjectDOM';
 import { createNewToDoDOM } from './todos/createNewToDoDOM';
 import { addNoteBtn } from './notes/createNewNote';
 import {
-  removeAllChildNodes,
   projects,
   updateCurrentProject,
   setLocalStorage,
@@ -18,6 +17,7 @@ import {
   projectsView,
 } from './DOMelements';
 import { createNewNoteDOM } from './notes/createNewNoteDOM';
+import removeAllChildNodes from './utils/removeAllChildNodes';
 
 export function renderInbox() {
   listTitle.after(dateLabel);

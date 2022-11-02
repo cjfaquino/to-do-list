@@ -1,6 +1,16 @@
-import { colorSelected, projects, removeAllChildNodes, updateCurrentProject, updateProjects} from '../index';
-import { projectsView, main, listTitle, listBtn, dateLabel, sortDateBtn, listView } from "./DOMelements";
-import { renderProjects, renderInbox, renderToDos } from "./renderItems";
+import { projects, updateCurrentProject, updateProjects } from '../index';
+import removeAllChildNodes from './utils/removeAllChildNodes';
+import {
+  projectsView,
+  main,
+  listTitle,
+  listBtn,
+  dateLabel,
+  sortDateBtn,
+  listView,
+} from './DOMelements';
+import { renderProjects, renderInbox, renderToDos } from './renderItems';
+import colorSelected from './utils/colorSelected';
 
 export function createNewProjectDOM(item, index) {
   const li = document.createElement('li');
@@ -25,14 +35,18 @@ export function createNewProjectDOM(item, index) {
   span.addEventListener('click', renderSelected);
   del.addEventListener('click', deleteProject(item));
   li.addEventListener('click', colorSelected);
-  li.addEventListener('mouseenter', () => { del.classList.remove('hide'); });
-  li.addEventListener('mouseleave', () => { del.classList.add('hide'); });
+  li.addEventListener('mouseenter', () => {
+    del.classList.remove('hide');
+  });
+  li.addEventListener('mouseleave', () => {
+    del.classList.add('hide');
+  });
   return li;
 
   function deleteProject(item) {
     return () => {
-      const filtered = projects.filter(key => key != item);
-      updateProjects(filtered)
+      const filtered = projects.filter((key) => key != item);
+      updateProjects(filtered);
       removeAllChildNodes(projectsView);
       renderProjects();
       renderInbox();
@@ -41,11 +55,11 @@ export function createNewProjectDOM(item, index) {
 
   function renderSelected() {
     main.dataset.list = item.name;
-    updateCurrentProject(item)
+    updateCurrentProject(item);
     listTitle.textContent = item.name;
     listTitle.after(listBtn);
     dateLabel.append(sortDateBtn);
     removeAllChildNodes(listView);
     renderToDos(projects[index]);
-  };
+  }
 }

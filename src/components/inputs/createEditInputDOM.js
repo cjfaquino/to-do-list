@@ -1,7 +1,8 @@
-import { removeAllChildNodes, currentProject } from '../../index';
+import { currentProject } from '../../index';
 import { main, listView } from '../DOMelements';
 import { renderInbox, renderToDos } from '../renderItems';
 import { setToDoName, setToDoDate, setToDoDesc } from '../todos/ToDo';
+import removeAllChildNodes from '../utils/removeAllChildNodes';
 
 import './editTodo.css';
 

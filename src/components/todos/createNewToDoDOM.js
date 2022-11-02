@@ -1,9 +1,5 @@
-import {
-  changeDateFormat,
-  removeAllChildNodes,
-  setLocalStorage,
-  projects,
-} from '../../index';
+import { changeDateFormat, setLocalStorage, projects } from '../../index';
+import removeAllChildNodes from '../utils/removeAllChildNodes';
 import { listView, projectsView, main } from '../DOMelements';
 import { renderProjects, renderInbox, renderToDos } from '../renderItems';
 import { createEditInput } from '../inputs/createEditInputDOM';

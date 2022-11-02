@@ -5,7 +5,8 @@ import {
   renderWeekly,
   renderNotes,
 } from './renderItems';
-import { sortDate, colorSelected } from '../index';
+import { sortDate } from '../index';
+import colorSelected from './utils/colorSelected';
 
 export const main = document.querySelector('main');
 export const sidebar = main.querySelector('.sidebar');
