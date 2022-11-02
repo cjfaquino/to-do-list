@@ -68,14 +68,14 @@ header {
   background-color: rgb(235, 235, 235);
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .selected {
   background-color: var(--sub-color);
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
-  transition: background-color .2s ease-in;
+  transition: background-color 0.2s ease-in;
 }
 
 .collapse {
@@ -85,7 +85,7 @@ header {
 
 .hide {
   opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear;
+  transition: opacity 0s, opacity 0.5s linear;
 }
 
 .hide:hover {
@@ -94,7 +94,7 @@ header {
 
 .strike {
   /* text-decoration: line-through; */
-  opacity: .2;
+  opacity: 0.2;
 }
 
 i,
@@ -104,6 +104,6 @@ button,
 .editTodo,
 .delTodo,
 .sortDate,
-input[type='checkbox'] {
+input[type="checkbox"] {
   cursor: pointer;
 }

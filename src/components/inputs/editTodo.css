@@ -36,7 +36,7 @@
   border: 1px solid black;
   border-radius: 2px;
   padding: 5px;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 #editName {
@@ -81,7 +81,7 @@
 
 .newDate {
   padding: 3px;
-  font-size: .9rem;
+  font-size: 0.9rem;
   display: flex;
   align-items: center;
 }
@@ -93,7 +93,7 @@
 
 .confirmNew,
 .cancelNew {
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .confirmNew {
