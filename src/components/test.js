@@ -1,4 +1,4 @@
-import { ToDo, toggleToDoCompleted } from './ToDo';
+import { ToDo, toggleToDoCompleted } from './todos/ToDo';
 import { createNewProject } from './createNewItem';
 import { Note } from './notes/Note';
 import { notesArr } from '..';

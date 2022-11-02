@@ -1,8 +1,8 @@
 import { List } from './List';
-import { ToDo } from './ToDo';
+import { ToDo } from './todos/ToDo';
 import { removeAllChildNodes, currentProject, projects } from '../index';
-import { projectsView } from "./DOMelements";
-import { renderProjects, renderToDos } from "./renderItems";
+import { projectsView } from './DOMelements';
+import { renderProjects, renderToDos } from './renderItems';
 
 export function createNewItem(newName, view, type, newDate, newDesc) {
   return (e) => {

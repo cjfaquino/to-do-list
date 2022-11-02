@@ -1,5 +1,5 @@
 import { createNewProjectDOM } from './createNewProjectDOM';
-import { createNewToDoDOM } from './createNewToDoDOM';
+import { createNewToDoDOM } from './todos/createNewToDoDOM';
 import { addNoteBtn } from './notes/createNewNote';
 import {
   removeAllChildNodes,

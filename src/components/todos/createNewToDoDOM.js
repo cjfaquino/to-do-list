@@ -3,12 +3,14 @@ import {
   removeAllChildNodes,
   setLocalStorage,
   projects,
-} from '../index';
-import { listView, projectsView, main } from './DOMelements';
-import { renderProjects, renderInbox, renderToDos } from './renderItems';
-import { createEditInput } from './inputs/createEditInputDOM';
-import { delTodo } from './List';
+} from '../../index';
+import { listView, projectsView, main } from '../DOMelements';
+import { renderProjects, renderInbox, renderToDos } from '../renderItems';
+import { createEditInput } from '../inputs/createEditInputDOM';
+import { delTodo } from '../List';
 import { toggleToDoCompleted } from './ToDo';
+
+import './todoList.css';
 
 export function createNewToDoDOM(el, projectArray) {
   const li = document.createElement('li');

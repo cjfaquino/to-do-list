@@ -1,5 +1,4 @@
 @import "./components/sidebar.css";
-@import "./components/todoList.css";
 
 :root {
   --sidebar-padding: 0 35px;
