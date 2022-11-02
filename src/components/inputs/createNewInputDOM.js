@@ -4,7 +4,7 @@ import { renderProjects, renderToDos } from '../renderItems';
 import { createNewItem } from '../createNewItem';
 import removeAllChildNodes from '../utils/removeAllChildNodes';
 
-export function createNewInput(view, type) {
+function createNewInput(view, type) {
   return () => {
     const div = document.createElement('div');
     const newName = document.createElement('input');
@@ -54,3 +54,5 @@ export function createNewInput(view, type) {
     newName.select();
   };
 }
+
+export default createNewInput;

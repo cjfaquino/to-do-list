@@ -1,12 +1,10 @@
 import { notesArr, setLocalStorage } from '../..';
-import { createNewNoteDOM } from './createNewNoteDOM';
+import createNewNoteDOM from './createNewNoteDOM';
 import { Note } from './Note';
 
 export const addNoteBtn = document.createElement('button');
 addNoteBtn.textContent = 'Add';
 addNoteBtn.classList.add('newNote');
-
-addNoteBtn.addEventListener('click', createNewNote());
 
 export function createNewNote(text) {
   return () => {
@@ -17,3 +15,5 @@ export function createNewNote(text) {
     return note;
   };
 }
+
+addNoteBtn.addEventListener('click', createNewNote());

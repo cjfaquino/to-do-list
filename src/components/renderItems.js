@@ -1,8 +1,8 @@
 import { createNewProjectDOM } from './createNewProjectDOM';
 import { addNoteBtn } from './notes/createNewNote';
-import { createNewNoteDOM } from './notes/createNewNoteDOM';
-import removeAllChildNodes from './utils/removeAllChildNodes';
 import { resetSortBtn } from './utils/dateFunc';
+import createNewNoteDOM from './notes/createNewNoteDOM';
+import removeAllChildNodes from './utils/removeAllChildNodes';
 // eslint-disable-next-line import/no-named-as-default
 import createToDoDOM from './todos/createToDoDOM';
 import {

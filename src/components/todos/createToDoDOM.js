@@ -1,11 +1,11 @@
 import { setLocalStorage, projects } from '../../index';
 import { changeDateFormat } from '../utils/dateFunc';
-import removeAllChildNodes from '../utils/removeAllChildNodes';
 import { listView, projectsView, main } from '../DOMelements';
 import { renderProjects, renderInbox, renderToDos } from '../renderItems';
-import { createEditInput } from '../inputs/createEditInputDOM';
 import { delTodo } from '../List';
 import { toggleToDoCompleted } from './ToDo';
+import removeAllChildNodes from '../utils/removeAllChildNodes';
+import createEditInput from '../inputs/createEditInputDOM';
 
 import './todoList.css';
 

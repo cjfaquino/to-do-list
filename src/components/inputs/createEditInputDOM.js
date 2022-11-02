@@ -6,7 +6,7 @@ import removeAllChildNodes from '../utils/removeAllChildNodes';
 
 import './editTodo.css';
 
-export function createEditInput(el) {
+function createEditInput(el) {
   const edits = document.createElement('div');
   const div = document.createElement('div');
   const labelName = document.createElement('label');
@@ -54,14 +54,11 @@ export function createEditInput(el) {
   edits.append(div);
   main.append(edits);
 
-  accept.addEventListener('click', updateTodo(el));
-  cancel.addEventListener('click', cancelEdit);
-
   function cancelEdit() {
     edits.remove();
   }
 
-  function updateTodo(el) {
+  function updateTodo() {
     return () => {
       const name = newName.value;
       const due = newDate.value;
@@ -80,4 +77,9 @@ export function createEditInput(el) {
       edits.remove();
     };
   }
+
+  accept.addEventListener('click', updateTodo());
+  cancel.addEventListener('click', cancelEdit);
 }
+
+export default createEditInput;

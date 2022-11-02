@@ -5,7 +5,7 @@ import { setNoteText } from './Note';
 
 import './notes.css';
 
-export function createNewNoteDOM(item) {
+function createNewNoteDOM(item) {
   const div = document.createElement('div');
   const textArea = document.createElement('textarea');
   const del = document.createElement('div');
@@ -21,9 +21,6 @@ export function createNewNoteDOM(item) {
   div.append(textArea, del);
   listView.append(div);
 
-  del.addEventListener('click', deleteNote);
-  textArea.addEventListener('change', updateNote);
-
   function updateNote() {
     setNoteText(item, this.value);
     setLocalStorage('notes', notesArr);
@@ -34,4 +31,9 @@ export function createNewNoteDOM(item) {
     setLocalStorage('notes', notesArr);
     renderNotes();
   }
+
+  del.addEventListener('click', deleteNote);
+  textArea.addEventListener('change', updateNote);
 }
+
+export default createNewNoteDOM;

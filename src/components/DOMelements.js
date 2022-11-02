@@ -1,12 +1,12 @@
-import { createNewInput } from './inputs/createNewInputDOM';
+import createNewInput from './inputs/createNewInputDOM';
+import colorSelected from './utils/colorSelected';
+import { sortDate } from './utils/dateFunc';
 import {
   renderInbox,
   renderToday,
   renderWeekly,
   renderNotes,
 } from './renderItems';
-import { sortDate } from './utils/dateFunc';
-import colorSelected from './utils/colorSelected';
 
 export const main = document.querySelector('main');
 export const sidebar = main.querySelector('.sidebar');
