@@ -1,13 +1,7 @@
 import './style.css';
 
 import * as demo from './components/test';
-import {
-  renderInbox,
-  renderProjects,
-  renderToDos,
-} from './components/renderItems';
-import { sortDateBtn, listView } from './components/DOMelements';
-import removeAllChildNodes from './components/utils/removeAllChildNodes';
+import { renderInbox, renderProjects } from './components/renderItems';
 
 export let notesArr = [];
 export let projects = [];
@@ -22,40 +16,6 @@ export function updateCurrentProject(item) {
 
 function updateNotes(item) {
   return (notesArr = item);
-}
-
-export function changeDateFormat(dateISOstring) {
-  if (!dateISOstring) return '';
-  const split = dateISOstring.split('-');
-  const newDate = `${split[1]}/${split[2]}/${split[0]}`;
-  return newDate;
-}
-
-export function sortDate() {
-  if (!sortDateBtn.dataset.sort) {
-    sortDateBtn.dataset.sort = 'asc';
-  }
-  projects.forEach((el) => {
-    el.list.sort((a, b) => {
-      if (sortDateBtn.dataset.sort === 'asc') {
-        if (a.dueDate > b.dueDate) return 1;
-        if (a.dueDate < b.dueDate) return -1;
-      } else if (sortDateBtn.dataset.sort === 'dsc') {
-        if (a.dueDate > b.dueDate) return -1;
-        if (a.dueDate < b.dueDate) return 1;
-      }
-      return 0;
-    });
-  });
-  if (sortDateBtn.dataset.sort === 'asc') {
-    sortDateBtn.dataset.sort = 'dsc';
-    sortDateBtn.innerHTML = '<i class="fa-solid fa-sort-up"></i>';
-  } else if (sortDateBtn.dataset.sort === 'dsc') {
-    sortDateBtn.dataset.sort = 'asc';
-    sortDateBtn.innerHTML = '<i class="fa-solid fa-sort-down"></i>';
-  }
-  removeAllChildNodes(listView);
-  renderToDos(currentProject);
 }
 
 export function setLocalStorage(storedName, dataArr) {

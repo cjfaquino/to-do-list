@@ -1,4 +1,5 @@
-import { changeDateFormat, setLocalStorage, projects } from '../../index';
+import { setLocalStorage, projects } from '../../index';
+import { changeDateFormat } from '../utils/dateFunc';
 import removeAllChildNodes from '../utils/removeAllChildNodes';
 import { listView, projectsView, main } from '../DOMelements';
 import { renderProjects, renderInbox, renderToDos } from '../renderItems';
@@ -22,6 +23,7 @@ export function createNewToDoDOM(el, projectArray) {
   del.innerHTML = '<i class="fa-solid fa-delete-left"></i>';
   p.textContent = el.name;
   span.textContent = changeDateFormat(el.dueDate);
+  li.dataset.date = changeDateFormat(el.dueDate);
   desc.textContent = el.desc;
 
   check.classList.add('checkComplete');

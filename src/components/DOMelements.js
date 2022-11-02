@@ -5,7 +5,7 @@ import {
   renderWeekly,
   renderNotes,
 } from './renderItems';
-import { sortDate } from '../index';
+import { sortDate } from './utils/dateFunc';
 import colorSelected from './utils/colorSelected';
 
 export const main = document.querySelector('main');
