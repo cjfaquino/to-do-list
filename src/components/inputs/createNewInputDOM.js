@@ -1,7 +1,8 @@
-import { removeAllChildNodes, currentProject } from '../../index';
+import { currentProject } from '../../index';
 import { projectsView, listView } from '../DOMelements';
 import { renderProjects, renderToDos } from '../renderItems';
 import { createNewItem } from '../createNewItem';
+import removeAllChildNodes from '../utils/removeAllChildNodes';
 
 export function createNewInput(view, type) {
   return () => {
@@ -36,28 +37,16 @@ export function createNewInput(view, type) {
     if (type === 'project') {
       div.append(confirm, cancel);
       renderProjects();
-      newName.addEventListener(
-        'keypress',
-        createNewItem(newName, projectsView, type)
-      );
-      confirm.addEventListener(
-        'click',
-        createNewItem(newName, projectsView, type)
-      );
+      newName.addEventListener('keypress', createNewItem(projectsView, type));
+      confirm.addEventListener('click', createNewItem(projectsView, type));
     }
 
     if (type === 'todo') {
       bottomRow.append(newDate, confirm, cancel);
       div.append(newDesc, bottomRow);
       renderToDos(currentProject);
-      newName.addEventListener(
-        'keypress',
-        createNewItem(newName, listView, type, newDate, newDesc)
-      );
-      confirm.addEventListener(
-        'click',
-        createNewItem(newName, listView, type, newDate, newDesc)
-      );
+      newName.addEventListener('keypress', createNewItem(listView, type));
+      confirm.addEventListener('click', createNewItem(listView, type));
     }
 
     cancel.addEventListener('click', () => div.remove());
