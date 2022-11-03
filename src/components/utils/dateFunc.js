@@ -22,24 +22,19 @@ export function sortDate() {
   }
   const todos = document.querySelectorAll('li.todo');
   const todosArr = Array.from(todos);
+
   const sorted = todosArr.sort((a, b) => {
+    const aDate = new Date(a.dataset.date).getTime();
+    const bDate = new Date(b.dataset.date).getTime();
     if (sortDateBtn.dataset.sort === 'asc') {
-      if (a.dataset.date > b.dataset.date) {
-        return 1;
-      }
-      if (a.dataset.date < b.dataset.date) {
-        return -1;
-      }
-    } else if (sortDateBtn.dataset.sort === 'dsc') {
-      if (a.dataset.date > b.dataset.date) {
-        return -1;
-      }
-      if (a.dataset.date < b.dataset.date) {
-        return 1;
-      }
+      return aDate - bDate;
+    }
+    if (sortDateBtn.dataset.sort === 'dsc') {
+      return bDate - aDate;
     }
     return 0;
   });
+
   if (sortDateBtn.dataset.sort === 'asc') {
     sortDateBtn.dataset.sort = 'dsc';
     sortDateBtn.innerHTML = '<i class="fa-solid fa-sort-up"></i>';
