@@ -1,25 +1,28 @@
 # to-do-list
 
+![screenshot](./screenshot.png)
+
 - Use GitHub actions for auto-deployment
 - Has localStorage set up
 - Uses npm for devdependencies
-- Uses webpack for browser compatibility
+- Uses webpack, babel for browser compatibility
 - Makes use of module pattern
 - Makes use of ES6 classes
 - Create multiple to-do lists
 - Create small notes
-- Sort dates
+- Sort and filter dates
 
 ## Install
-Run install script to get  devdependencies
+
+Run install script to get devdependencies
 `npm install`
 
 ### Build
-Create a new main.js bundle
+
+Creates new html, js, css files in dist folder
 `npm run build`
 
 ### Development
-If you have your own live server
-`npm run watch`
-otherwise
-`npm run start`
+
+Opens a new tab with live reload
+`npm run dev`
