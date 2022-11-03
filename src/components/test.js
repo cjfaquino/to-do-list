@@ -1,98 +1,77 @@
+import { LoremIpsum } from 'lorem-ipsum';
 import { ToDo, toggleToDoCompleted } from './todos/ToDo';
 import { createNewProject } from './createNewItem';
 import { Note } from './notes/Note';
 import { getNotes } from '../updateProjects';
 
 const randomDate = () => {
-  const randomNum = Math.floor(Math.random() * 6);
+  const randomNum = Math.floor(Math.random() * 15);
   const getToday = new Date();
   const date = new Date(getToday.setDate(getToday.getDate() + randomNum));
   return date.toISOString().split('T')[0];
 };
 
+const randomDesc = () => {
+  const randomNum = Math.floor(Math.random() * 45 + 15);
+  return new LoremIpsum().generateWords(randomNum);
+};
+
+const projectData = [
+  ['Create delete button', '2022-09-29'],
+  ['Create a way to update values', '2022-09-29'],
+  ['Expand for description', '2022-09-30'],
+  ['Create currently selected project function', '2022-10-01'],
+  ['Sort dates', '2022-11-01'],
+  ['Change date format', '2022-10-01'],
+  ['Filter by today', '2022-11-02'],
+  ['Filter by week', '2022-11-02'],
+  ['Add notes section', '2022-10-01'],
+  ['Add localStorage abilities', '2022-10-06'],
+];
+const choresData = [
+  ['Do laundry'],
+  ['Wash dishes'],
+  ['Take out trash'],
+  ['Prep meals'],
+  ['Bathe the pets'],
+  ['Vacuum curtains'],
+  ['Empty dishwasher'],
+  ['Cean litter box'],
+  ['Wash windows'],
+  ['Vacuum rugs'],
+  ['Sweep floors'],
+  ['Mop floors'],
+  ['Clean PC'],
+  ['Weed garden'],
+  ['Clean bathroom'],
+];
+const notesData = [
+  'oranges\nbananas\napples\ngrapes',
+  'CPU\nGPU\nRAM\nPSU\nSSD\nMotherboard',
+  'one\ntwo\nthree\nfour',
+];
+
 export const todos = () => {
   const project1 = createNewProject('Project');
   const project2 = createNewProject('Chores');
 
-  const todo0 = new ToDo(
-    'Create delete button',
-    '2022-09-29',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Amet est placerat in egestas erat.'
-  );
-  project1.list.push(todo0);
-  toggleToDoCompleted(todo0);
+  projectData.forEach((item) => {
+    const todo = new ToDo(item[0], item[1], randomDesc());
+    project1.list.push(todo);
+    toggleToDoCompleted(todo);
+  });
 
-  const todo = new ToDo('Create a way to update values', '2022-09-29');
-  project1.list.push(todo);
-  toggleToDoCompleted(todo);
-
-  const todo10 = new ToDo(
-    'Expand for description',
-    '2022-09-30',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Amet est placerat in egestas erat.'
-  );
-  project1.list.push(todo10);
-  toggleToDoCompleted(todo10);
-
-  const todo9 = new ToDo(
-    'Create currently selected project function',
-    '2022-10-01'
-  );
-  project1.list.push(todo9);
-  toggleToDoCompleted(todo9);
-
-  const todo1 = new ToDo('Sort dates', '2022-10-01');
-  project1.list.push(todo1);
-  toggleToDoCompleted(todo1);
-
-  const todo8 = new ToDo('Change date format', '2022-10-01');
-  project1.list.push(todo8);
-  toggleToDoCompleted(todo8);
-
-  const todo2 = new ToDo('Filter by today', '2022-11-01');
-  project1.list.push(todo2);
-  toggleToDoCompleted(todo2);
-
-  const todo3 = new ToDo('Filter by this week', '2022-11-02');
-  project1.list.push(todo3);
-  toggleToDoCompleted(todo3);
-
-  const todo7 = new ToDo('Add notes section', '2022-10-01');
-  project1.list.push(todo7);
-  toggleToDoCompleted(todo7);
-
-  const todo12 = new ToDo('Add localStorage abilities', '2022-10-06');
-  project1.list.push(todo12);
-  toggleToDoCompleted(todo12);
-
-  const todo4 = new ToDo('Clean room', randomDate());
-  project2.list.push(todo4);
-
-  const todo5 = new ToDo('Do laundry', randomDate());
-  project2.list.push(todo5);
-  toggleToDoCompleted(todo5);
-
-  const todo6 = new ToDo('Buy groceries', randomDate());
-  project2.list.push(todo6);
-
-  const todo11 = new ToDo('Take out the trash', randomDate());
-  project2.list.push(todo11);
-  toggleToDoCompleted(todo11);
+  choresData.forEach((item) => {
+    const todo = new ToDo(item[0], randomDate(), randomDesc());
+    project2.list.push(todo);
+  });
 };
 
 export const notes = () => {
   const notesArr = getNotes();
-  const note0 = new Note('oranges\nbananas\napples\ngrapes');
-  notesArr.push(note0);
 
-  const note1 = new Note('CPU\nGPU\nRAM\nPSU\nSSD\nMotherboard');
-  notesArr.push(note1);
-
-  const note2 = new Note('one\ntwo\nthree\nfour');
-  notesArr.push(note2);
-
-  for (let i = 0; i < 5; i++) {
-    const newNotes = new Note();
+  for (let i = 0; i < 8; i++) {
+    const newNotes = new Note(notesData[i]);
     notesArr.push(newNotes);
   }
 };
