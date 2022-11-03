@@ -1,6 +1,6 @@
 import { createNewProjectDOM } from './createNewProjectDOM';
 import { addNoteBtn } from './notes/createNewNote';
-import { resetSortBtn } from './utils/dateFunc';
+import { filterDate, resetSortBtn } from './utils/dateFunc';
 import createNewNoteDOM from './notes/createNewNoteDOM';
 import removeAllChildNodes from './utils/removeAllChildNodes';
 // eslint-disable-next-line import/no-named-as-default
@@ -39,17 +39,21 @@ export function renderProjects() {
   setLocalStorage('projects', projects);
 }
 
-export function renderInbox() {
+const renderAllTodos = () => {
   const projects = getProjects();
+  projects.forEach((el) => {
+    renderToDos(el);
+  });
+};
+
+export function renderInbox() {
   listTitle.after(dateLabel);
   listBtn.remove();
   resetSortBtn();
   main.dataset.list = 'allInbox';
   listTitle.textContent = 'Inbox';
   removeAllChildNodes(listView);
-  projects.forEach((el) => {
-    renderToDos(el);
-  });
+  renderAllTodos();
 }
 export function renderToday() {
   listTitle.after(dateLabel);
@@ -58,6 +62,8 @@ export function renderToday() {
   removeAllChildNodes(listView);
   main.dataset.list = 'TodaySection';
   listTitle.textContent = 'Today';
+  renderAllTodos();
+  filterDate('today');
 }
 export function renderWeekly() {
   listTitle.after(dateLabel);
@@ -67,6 +73,8 @@ export function renderWeekly() {
   removeAllChildNodes(listView);
   main.dataset.list = 'WeeklySection';
   listTitle.textContent = 'This Week';
+  renderAllTodos();
+  filterDate('week');
 }
 export function renderNotes() {
   const notesArr = getNotes();
