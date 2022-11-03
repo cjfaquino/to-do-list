@@ -53,6 +53,11 @@ function createNewInput(view, type) {
     cancel.addEventListener('click', () => div.remove());
     view.append(div);
     newName.select();
+    div.scrollIntoView({
+      behavior: 'smooth',
+      block: 'end',
+      inline: 'nearest',
+    });
   };
 }
 
