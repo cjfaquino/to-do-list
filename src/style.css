@@ -27,6 +27,19 @@ button {
   background-color: var(--main-color);
 }
 
+button:hover {
+  background: grey;
+}
+
+button.cancelNew:hover {
+  background-color: rgb(255, 84, 84);
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--main-color);
+}
+
 textarea {
   resize: none;
 }

@@ -87,8 +87,6 @@
 .newDate {
   padding: 3px;
   font-size: 0.9rem;
-  display: flex;
-  align-items: center;
 }
 
 .newInputBottom {
