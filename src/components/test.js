@@ -3,6 +3,13 @@ import { createNewProject } from './createNewItem';
 import { Note } from './notes/Note';
 import { getNotes } from '../updateProjects';
 
+const randomDate = () => {
+  const randomNum = Math.floor(Math.random() * 6);
+  const getToday = new Date();
+  const date = new Date(getToday.setDate(getToday.getDate() + randomNum));
+  return date.toISOString().split('T')[0];
+};
+
 export const todos = () => {
   const project1 = createNewProject('Project');
   const project2 = createNewProject('Chores');
@@ -42,11 +49,13 @@ export const todos = () => {
   project1.list.push(todo8);
   toggleToDoCompleted(todo8);
 
-  const todo2 = new ToDo('Filter by today', '2022-10-01');
+  const todo2 = new ToDo('Filter by today', '2022-11-01');
   project1.list.push(todo2);
+  toggleToDoCompleted(todo2);
 
-  const todo3 = new ToDo('Filter by this week', '2022-10-01');
+  const todo3 = new ToDo('Filter by this week', '2022-11-02');
   project1.list.push(todo3);
+  toggleToDoCompleted(todo3);
 
   const todo7 = new ToDo('Add notes section', '2022-10-01');
   project1.list.push(todo7);
@@ -56,23 +65,17 @@ export const todos = () => {
   project1.list.push(todo12);
   toggleToDoCompleted(todo12);
 
-  const todo4 = new ToDo('Clean room', new Date().toISOString().split('T')[0]);
+  const todo4 = new ToDo('Clean room', randomDate());
   project2.list.push(todo4);
 
-  const todo5 = new ToDo('Do laundry', new Date().toISOString().split('T')[0]);
+  const todo5 = new ToDo('Do laundry', randomDate());
   project2.list.push(todo5);
   toggleToDoCompleted(todo5);
 
-  const todo6 = new ToDo(
-    'Buy groceries',
-    new Date().toISOString().split('T')[0]
-  );
+  const todo6 = new ToDo('Buy groceries', randomDate());
   project2.list.push(todo6);
 
-  const todo11 = new ToDo(
-    'Take out the trash',
-    new Date().toISOString().split('T')[0]
-  );
+  const todo11 = new ToDo('Take out the trash', randomDate());
   project2.list.push(todo11);
   toggleToDoCompleted(todo11);
 };
