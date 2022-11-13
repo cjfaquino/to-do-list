@@ -13,8 +13,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       hash: true,
-      title: 'Weather App',
-      metaDesc: 'Weather app based on OpenWeather API',
       template: './src/index.html',
       filename: 'index.html',
       inject: 'body',
